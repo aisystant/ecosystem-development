@@ -1,4 +1,6 @@
-﻿.obsidian/
-.DS_Store
-Thumbs.db
-*.tmp
+.obsidian/workspace.json
+.obsidian/appearance.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+.obsidian/plugins/**/main.js
+private/
