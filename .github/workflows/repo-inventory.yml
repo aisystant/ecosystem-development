@@ -1,7 +1,7 @@
 name: repo-inventory
 on:
-  push:
-    branches: [ chore/repo-inventory ]
+  schedule:
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 permissions:
