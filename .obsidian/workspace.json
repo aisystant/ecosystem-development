@@ -335,12 +335,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "healthcheck.txt.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "healthcheck.txt"
+              "title": "README"
             }
           }
         ],
@@ -497,8 +497,9 @@
   },
   "active": "7f2b6d06f3f9cfa1",
   "lastOpenFiles": [
-    "README.md",
+    "sync_check.txt",
     "healthcheck.txt.md",
+    "README.md",
     "2. Продвижение/Манифест.md",
     "2. Продвижение/2.5. Маркетинговые материлы.md",
     "2. Продвижение/2.4. Концепция функционирования экосистемы для ЦА.md",
@@ -522,7 +523,6 @@
     "0. Управление/0.5. Проверочный документ.md",
     "0. Управление/0.4. Дорожная карта.md",
     "0. Управление/0.3. Решения.md",
-    "4. Системы/4.0. Информация.md",
     "structure.txt",
     "2. Продвижение",
     "3. Библиотека",
