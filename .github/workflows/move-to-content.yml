@@ -1,4 +1,4 @@
-name: agents-starter
+name: move-to-content
 on:
   workflow_dispatch:
 
@@ -7,123 +7,60 @@ permissions:
   pull-requests: write
 
 jobs:
-  seed:
+  move:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout full history
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Prepare tree
+      - name: Setup git identity (bot)
+        run: |
+          git config user.name "chatgpt-bot"
+          git config user.email "chatgpt-bot@users.noreply.github.com"
+          git config core.quotepath false
+
+      - name: Debug: list root entries (top-level)
+        run: ls -la
+
+      - name: Move top-level sections 0–4 into content/ (robust)
+        id: move
+        shell: bash
         run: |
           set -e
-          mkdir -p agents-core/architect agents-core/docs agents-core/code agents-core/critique
-          mkdir -p content/agents content/templates
+          mkdir -p content
 
-          # manifests
-          cat > agents-core/architect/manifest.json << 'JSON'
-          {
-            "name": "Architect",
-            "role": "system architect",
-            "description": "Агент анализирует и проектирует систему экосистемы, обновляет архитектурные документы и схемы.",
-            "inputs": ["content/0. Управление", "content/4. Системы", "content/contracts"],
-            "outputs": ["artifacts/architect"],
-            "tools": ["text-analyzer", "diagram-builder"],
-            "metrics": ["coherence", "coverage", "clarity"]
-          }
-          JSON
+          # переносим только каталоги верхнего уровня, начинающиеся с "0. ", "1. ", ..., "4. "
+          while IFS= read -r entry; do
+            if [[ "$entry" =~ ^[0-4]\.\  ]] && [ -d "$entry" ]; then
+              echo "Moving dir: $entry -> content/"
+              git mv -k "$entry" "content/" || true
+            fi
+          done < <(ls -1)
 
-          cat > agents-core/docs/manifest.json << 'JSON'
-          {
-            "name": "Docs",
-            "role": "documentation assistant",
-            "description": "Генерирует и форматирует документацию, поддерживает README и обучающие материалы.",
-            "inputs": ["content", "content/templates"],
-            "outputs": ["artifacts/docs"],
-            "tools": ["markdown-linter", "style-checker"],
-            "metrics": ["readability", "consistency"]
-          }
-          JSON
+          echo "---- git status (after mv) ----"
+          git status --porcelain || true
 
-          cat > agents-core/code/manifest.json << 'JSON'
-          {
-            "name": "Code",
-            "role": "developer agent",
-            "description": "Создаёт и поддерживает кодовые артефакты экосистемы (скрипты, workflows, SDK).",
-            "inputs": ["content/4. Системы", "content/contracts"],
-            "outputs": ["artifacts/code"],
-            "tools": ["codegen", "static-analyzer"],
-            "metrics": ["correctness", "security", "efficiency"]
-          }
-          JSON
-
-          cat > agents-core/critique/manifest.json << 'JSON'
-          {
-            "name": "Critique",
-            "role": "quality reviewer",
-            "description": "Оценивает артефакты и тексты по метрикам качества, формирует отчёты в artifacts/critique.",
-            "inputs": ["content", "artifacts"],
-            "outputs": ["artifacts/critique"],
-            "tools": ["qa-metrics", "review-parser"],
-            "metrics": ["accuracy", "coverage", "clarity"]
-          }
-          JSON
-
-          # index
-          cat > content/agents/00-Index.md << 'MD'
-          # Индекс ИИ-агентов
-
-          | Агент | Назначение | Входы | Выходы | Манифест |
-          |-------|-------------|--------|---------|----------|
-          | **Architect** | Проектирование системы | `content/0. Управление`, `content/4. Системы` | `artifacts/architect` | `agents-core/architect/manifest.json` |
-          | **Docs**      | Документация и обучение | `content`, `content/templates` | `artifacts/docs` | `agents-core/docs/manifest.json` |
-          | **Code**      | Код и интеграции | `content/4. Системы`, `content/contracts` | `artifacts/code` | `agents-core/code/manifest.json` |
-          | **Critique**  | Проверка качества | `content`, `artifacts` | `artifacts/critique` | `agents-core/critique/manifest.json` |
-          MD
-
-          # agent passport template
-          cat > content/templates/Agent-Template.md << 'MD'
-          # Паспорт агента: {{AgentName}}
-
-          ## Роль
-          {{Описание роли агента и его миссия в экосистеме.}}
-
-          ## Входы
-          - {{Пути к данным или разделам content/}}
-
-          ## Выходы
-          - {{Папки в artifacts/, куда агент пишет результаты}}
-
-          ## Инструменты
-          - {{Используемые инструменты (SDK, MCP, Actions)}}
-
-          ## Метрики качества
-          | Метрика | Значение/Комментарий |
-          |---------|----------------------|
-          | coherence | — |
-          | coverage  | — |
-          | readability | — |
-          | correctness | — |
-
-          ## История изменений
-          | Дата | Версия | Описание |
-          |------|--------|----------|
-          | {{YYYY-MM-DD}} | 0.1 | Первое создание паспорта |
-          MD
+          if git status --porcelain | grep -q . ; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Create Pull Request
+        if: steps.move.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          title: 'feat(agents): seed agents-core manifests + content/agents index + template'
+          title: 'refactor(content): move sections 0–4 into content/'
           body: |
-            Добавлен стартовый каркас ИИ-агентов:
-            - agents-core/*/manifest.json
-            - content/agents/00-Index.md
-            - content/templates/Agent-Template.md
-
-            После merge рекомендуем запустить repo-inventory для обновления artifacts/inventories/repo_inventory.tsv.
-          commit-message: 'feat(agents): seed agents-core + index + template'
-          branch: 'feat/agents-starter'
+            Automated move via workflow.
+            After merge, run repo-inventory to refresh artifacts/inventories/repo_inventory.tsv.
+          commit-message: 'refactor(content): move sections 0–4 into content/'
+          branch: 'chore/move-content'
           base: 'main'
           delete-branch: true
 
+      - name: No changes detected (skip PR)
+        if: steps.move.outputs.changed != 'true'
+        run: echo "Nothing to move. Skipping PR."
