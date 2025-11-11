@@ -172,6 +172,9 @@
   },
   "active": "04cbb09f9ac9a501",
   "lastOpenFiles": [
+    "ops/build_check_document.py.tmp.10897.1762875800530",
+    "ops/README.md.tmp.10897.1762875764973",
+    "ops/SETUP_GUIDE.md",
     "ops/build_check_document.py.tmp.10897.1762875687788",
     "content/0. Управление/0.3. Решения.md",
     "content/0. Управление/0.9. Разное.md",
@@ -189,8 +192,6 @@
     "ops/README.md",
     "ops/README.md.tmp.10897.1762873807333",
     "ops/build_check_document.py",
-    "ops/build_check_document.py.tmp.10897.1762873617475",
-    "backup_log.txt",
     "content/1. Идеи развития экосистемы/1.3. Идеи и принципы развития.md",
     "github/PULL_REQUEST_TEMPLATE.md",
     "content/4. Системы/4.8. Системы приема оплаты фиатом.md",
@@ -206,7 +207,6 @@
     "content/4. Системы/4.2. Операционная система ИИ-платформы.md",
     "content/4. Системы/4.10. Финансовая система токеномики.md",
     "content/4. Системы/4.1. Список подсистем.md",
-    "content/3. Библиотека/3.3. Понятия.md",
-    "content/3. Библиотека/3.2. Программы развития.md"
+    "content/3. Библиотека/3.3. Понятия.md"
   ]
 }
