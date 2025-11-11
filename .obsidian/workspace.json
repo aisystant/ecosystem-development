@@ -372,35 +372,21 @@
             }
           },
           {
-            "id": "0d4d821a6dad0acb",
+            "id": "1a631bc2717e6815",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/0. Управление/0.5. Проверочный документ.md",
+                "file": "conflict-files-obsidian-git.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0.5. Проверочный документ"
-            }
-          },
-          {
-            "id": "9222f3f49cc797a2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "1.4. Концепция функционирования экосистемы для ЦА"
+              "title": "conflict-files-obsidian-git"
             }
           }
         ],
-        "currentTab": 27
+        "currentTab": 26
       }
     ],
     "direction": "vertical"
@@ -549,10 +535,8 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9222f3f49cc797a2",
+  "active": "1a631bc2717e6815",
   "lastOpenFiles": [
-    "1. Идеи развития экосистемы/1.5. Постановка целей и задач.md",
-    "0. Управление/0.0. Информация.md",
     "sync_check.txt",
     "structure.txt",
     "4. Системы/4.9. Биллинг.md",
@@ -580,12 +564,14 @@
     "2. Продвижение/2.1. Целевые аудитории.md",
     "2. Продвижение/2.0. Информация.md",
     "2. Продвижение",
+    "1. Идеи развития экосистемы/1.5. Постановка целей и задач.md",
     "1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md",
     "1. Идеи развития экосистемы/1.3. Идеи и принципы развития.md",
     "1. Идеи развития экосистемы",
     "0. Управление",
     "registry.json.txt",
-    "Текстовый документ.txt",
-    "repo_full_2025-11-11.zip"
+    "ops/sync_check.txt",
+    "ops/structure.txt",
+    "ops/registry.json"
   ]
 }
