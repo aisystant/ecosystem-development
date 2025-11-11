@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "0.5. Проверочный документ"
             }
+          },
+          {
+            "id": "22a71b914b3ec3cd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "conflict-files-obsidian-git.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "conflict-files-obsidian-git"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -170,8 +185,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "04cbb09f9ac9a501",
+  "active": "22a71b914b3ec3cd",
   "lastOpenFiles": [
+    "ops/build_check_document.py.tmp.10897.1762875874650",
+    "content/0. Управление/0.5. Проверочный документ.md",
+    "conflict-files-obsidian-git.md",
     "ops/build_check_document.py.tmp.10897.1762875800530",
     "ops/README.md.tmp.10897.1762875764973",
     "ops/SETUP_GUIDE.md",
@@ -179,8 +197,6 @@
     "content/0. Управление/0.3. Решения.md",
     "content/0. Управление/0.9. Разное.md",
     "content/0. Управление/0.2. План работ.md",
-    "content/0. Управление/0.5. Проверочный документ.md",
-    "conflict-files-obsidian-git.md",
     "ops/README.md.tmp.10897.1762875117089",
     "ops/README.md.tmp.10897.1762875107112",
     "ops/README.md.tmp.10897.1762875089071",
@@ -191,7 +207,6 @@
     "test-sync.md.md",
     "ops/README.md",
     "ops/README.md.tmp.10897.1762873807333",
-    "ops/build_check_document.py",
     "content/1. Идеи развития экосистемы/1.3. Идеи и принципы развития.md",
     "github/PULL_REQUEST_TEMPLATE.md",
     "content/4. Системы/4.8. Системы приема оплаты фиатом.md",
