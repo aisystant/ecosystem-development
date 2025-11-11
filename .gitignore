@@ -25,14 +25,14 @@ structure_full.txt
 manifest.csv
 
 # === Обработка Git и LFS ===
-.gitignore
+# .gitignore    ← Закомментировано, чтобы изменения попадали в Git
 .gitmodules
 .gitconfig
 
 # === Плагины Obsidian ===
-.obsidian/plugins/*/data.json
+# .obsidian/plugins/*/data.json      ← Разрешено для синхронизации настроек
 .obsidian/plugins/*/cache*
-.obsidian/plugins/*/manifest.json
+# .obsidian/plugins/*/manifest.json   ← Разрешено
 .obsidian/plugins/*/main.js
 .obsidian/plugins/*/styles.css
 .obsidian/workspace.json
