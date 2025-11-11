@@ -47,9 +47,7 @@ manifest.csv
 .obsidian/backups/
 
 # Плагины (data.json — НЕ коммитим, чтобы не было конфликтов!)
-.obsidian/plugins/*/data.json
 .obsidian/plugins/*/cache*/
-.obsidian/plugins/*/manifest.json
 .obsidian/plugins/*/main.js
 .obsidian/plugins/*/styles.css
 
