@@ -27,7 +27,7 @@ jobs:
             echo "registry.json not found; aborting"
             exit 1
           fi
-          jq . registry.json > /dev/null
+          jq . registry.json > /dev/null && echo "registry.json is valid JSON" || echo "Invalid JSON"
 
       - name: Show quality.yaml
         run: cat quality.yaml || true
