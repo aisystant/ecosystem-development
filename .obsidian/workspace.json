@@ -173,6 +173,7 @@
   },
   "active": "04cbb09f9ac9a501",
   "lastOpenFiles": [
+    "ops/classify_documents.py",
     "ops/build_check_document.py.tmp.10897.1762883490934",
     "ops/build_check_document.py.tmp.10897.1762883475663",
     "ops/build_check_document.py.tmp.10897.1762883465400",
@@ -186,7 +187,6 @@
     "ops/build_check_document.py.tmp.10897.1762882514138",
     "ops/build_check_document.py.tmp.10897.1762882503574",
     "conflict-files-obsidian-git.md",
-    "ops/build_check_document.py.tmp.10897.1762882059516",
     "content/0. Управление/0.6. Структура этого хранилища.md",
     "content/0. Управление/0.7. Классификация документов и теги.md",
     "ops/SETUP_GUIDE.md",
