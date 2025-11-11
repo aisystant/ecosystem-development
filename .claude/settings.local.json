@@ -4,7 +4,8 @@
       "Bash(sed:*)",
       "WebFetch(domain:code.claude.com)",
       "Bash(git check-ignore:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
