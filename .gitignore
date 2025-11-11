@@ -70,3 +70,4 @@ node_modules/
 venv/
 .env
 .env
+.venv/
