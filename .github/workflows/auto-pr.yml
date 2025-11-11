@@ -1,0 +1,14 @@
+name: Auto PR
+on: [push: branches: [feat/ci-and-ops]]
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          title: "Auto-sync from Obsidian"
+          body: "Авто-обновление. Enable auto-merge if ready."
+          auto-merge: true  # Авто-включение merge после checks
