@@ -509,6 +509,8 @@
   },
   "active": "0800e22fe622294a",
   "lastOpenFiles": [
+    "ops/README.md",
+    "ops/README.md.tmp.10897.1762873807333",
     "content/0. Управление/0.91. Структура проверочного документа.md",
     "ops/build_check_document.py",
     "ops/build_check_document.py.tmp.10897.1762873617475",
@@ -522,7 +524,6 @@
     "ops/registry.json",
     "ops/quality.yaml",
     "ops",
-    "github/workflows/naming-check.yml",
     "github/PULL_REQUEST_TEMPLATE.md",
     "content/4. Системы/4.8. Системы приема оплаты фиатом.md",
     "content/4. Системы/4.9. Биллинг.md",
