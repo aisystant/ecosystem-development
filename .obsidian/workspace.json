@@ -349,12 +349,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/0. Управление/0.91. Структура проверочного документа.md",
+                "file": "content/0. Управление/0.5. Проверочный документ.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0.91. Структура проверочного документа"
+              "title": "0.5. Проверочный документ"
             }
           }
         ],
@@ -509,9 +509,14 @@
   },
   "active": "0800e22fe622294a",
   "lastOpenFiles": [
+    "ops/README.md.tmp.10897.1762875117089",
+    "ops/README.md.tmp.10897.1762875107112",
+    "ops/README.md.tmp.10897.1762875089071",
+    "ops/build_check_document.sh",
+    "ops/build_check_document.sh.tmp.10897.1762875033650",
+    "content/0. Управление/0.91. Структура проверочного документа.md",
     "ops/build_check_document.py.tmp.10897.1762874905671",
     "test-sync.md.md",
-    "content/0. Управление/0.91. Структура проверочного документа.md",
     "content/0. Управление/0.5. Проверочный документ.md",
     "ops/README.md",
     "ops/README.md.tmp.10897.1762873807333",
@@ -521,11 +526,6 @@
     "content/1. Идеи развития экосистемы/1.3. Идеи и принципы развития.md",
     "conflict-files-obsidian-git.md",
     "registry.json.txt",
-    "ops/sync_check.txt",
-    "ops/structure.txt",
-    "ops/registry.json",
-    "ops/quality.yaml",
-    "ops",
     "github/PULL_REQUEST_TEMPLATE.md",
     "content/4. Системы/4.8. Системы приема оплаты фиатом.md",
     "content/4. Системы/4.9. Биллинг.md",

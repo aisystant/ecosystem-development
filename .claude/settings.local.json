@@ -14,7 +14,9 @@
       "Bash(git checkout:*)",
       "Bash(git push:*)",
       "Bash(python3:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(chmod:*)",
+      "Bash(./ops/build_check_document.sh:*)"
     ],
     "deny": [],
     "ask": []
