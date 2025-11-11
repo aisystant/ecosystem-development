@@ -72,7 +72,7 @@ DOCUMENT_MAPPING = {
                 "extract_sections": ["# 0. Краткое объяснение"]
             },
             "1.2": {
-                "title": "Структура документа",
+                "title": "Укрупнённая структура экосистемы",
                 "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
                 "extract_sections": ["## A. Укрупнённая структура"]
             },
@@ -112,7 +112,7 @@ DOCUMENT_MAPPING = {
                 "extract_sections": ["## B. Главные процессы"]
             },
             "3.2": {
-                "title": "Концепция использования",
+                "title": "Концепция использования для ролей",
                 "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
                 "extract_sections": ["## F. Концепция использования"]
             }
@@ -122,22 +122,19 @@ DOCUMENT_MAPPING = {
         "title": "Архитектура и системы",
         "subsections": {
             "4.1": {
-                "title": "Структура ИИ-платформы",
-                "sources": [
-                    "1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md",
-                    "4. Системы/4.2. Операционная система ИИ-платформы.md"
-                ],
+                "title": "Список подсистем платформы",
+                "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
                 "extract_sections": ["## C. Список подсистем"]
             },
             "4.2": {
-                "title": "Список подсистем",
-                "sources": ["4. Системы/4.1. Список подсистем.md"],
-                "extract_sections": ["## C. Список подсистем"]
-            },
-            "4.3": {
-                "title": "Схема взаимодействия",
+                "title": "Данные и метаинформационная модель",
                 "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
                 "extract_sections": ["## D. Данные и МИМ"]
+            },
+            "4.3": {
+                "title": "Эпистемический статус и репутация",
+                "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
+                "extract_sections": ["## E. Процесс подтверждения"]
             }
         }
     },
@@ -155,6 +152,35 @@ DOCUMENT_MAPPING = {
                 "extract_sections": ["## Базовая схема", "## Карта"]
             }
         }
+    },
+    "6": {
+        "title": "Культура и стандарты качества",
+        "subsections": {
+            "6.1": {
+                "title": "Принципы культуры",
+                "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
+                "extract_sections": ["## G. Культура и стандарты качества"]
+            },
+            "6.2": {
+                "title": "Архитектурные границы и ADR",
+                "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
+                "extract_sections": ["## H. Архитектурные границы"]
+            }
+        }
+    },
+    "7": {
+        "title": "Метрики и измерения",
+        "subsections": {
+            "7.1": {
+                "title": "Ключевые метрики",
+                "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
+                "extract_sections": ["## I. Метрики"]
+            }
+        }
+    },
+    "8": {
+        "title": "Заключение о противоречиях и несоответствиях",
+        "description": "AI-анализ выполняется автоматически при запуске с флагом --ai-analysis"
     }
 }
 
@@ -221,6 +247,44 @@ def extract_sections(content: str, sections: List[str]) -> str:
 
                 if capturing:
                     result.append(line)
+
+    return '\n'.join(result)
+
+
+def extract_section_content_without_header(content: str, section_header: str) -> str:
+    """
+    Извлекает СОДЕРЖИМОЕ раздела БЕЗ его заголовка.
+    Например, для "## B. Главные процессы" вернёт только текст внутри этого раздела,
+    пропустив сам заголовок "## B. Главные процессы"
+    """
+    result = []
+    lines = content.split('\n')
+    capturing = False
+    current_level = 0
+    skip_first_header = True  # Флаг для пропуска первого заголовка
+
+    for line in lines:
+        # Проверяем начало нужной секции
+        if line.strip().startswith(section_header):
+            capturing = True
+            current_level = line.count('#')
+            # НЕ добавляем сам заголовок в result
+            skip_first_header = True
+            continue  # Пропускаем эту строку
+
+        if capturing:
+            # Останавливаем захват при встрече заголовка того же или более высокого уровня
+            line_level = 0
+            if line.startswith('#'):
+                line_level = len(line) - len(line.lstrip('#'))
+
+            if line_level > 0 and line_level <= current_level:
+                # Встретили новый раздел того же уровня - останавливаем
+                capturing = False
+                continue
+
+            # Добавляем строку в результат
+            result.append(line)
 
     return '\n'.join(result)
 
@@ -328,9 +392,17 @@ def build_section(section_num: str, config: Dict) -> str:
 
             # Извлекаем нужные секции или делаем сводку
             if 'extract_sections' in config and config['extract_sections']:
-                extracted = extract_sections(content, config['extract_sections'])
-                if extracted:
-                    adjusted = adjust_heading_levels(extracted, section_num)
+                # Используем новую функцию, которая извлекает содержимое БЕЗ заголовка
+                extracted_parts = []
+                for section_header in config['extract_sections']:
+                    extracted = extract_section_content_without_header(content, section_header)
+                    if extracted.strip():
+                        extracted_parts.append(extracted)
+
+                if extracted_parts:
+                    combined = '\n\n'.join(extracted_parts)
+                    # Применяем корректировку заголовков (понижаем уровень)
+                    adjusted = adjust_heading_levels(combined, section_num)
                     result.append(adjusted)
             elif config.get('summarize'):
                 summary = summarize_section(content)
@@ -565,8 +637,6 @@ export OPENAI_API_KEY=your_api_key
         total_cost = input_cost + output_cost
 
         return f"""
-## 9. Заключение о противоречиях и несоответствиях
-
 > 🤖 **AI-анализ выполнен**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
 >
 > 📊 **Охват анализа**: ВСЕ {doc_count} документов репозитория
@@ -621,8 +691,6 @@ _Следующая проверка будет выполнена при сле
     except Exception as e:
         print(f"❌ Ошибка AI-анализа: {e}")
         return f"""
-## 9. Заключение о противоречиях и несоответствиях
-
 ⚠️ **Ошибка AI-анализа**: {str(e)}
 
 ### Ручная проверка
@@ -662,43 +730,21 @@ def build_check_document(use_ai: bool = False) -> str:
 
     for section_num in main_sections:
         config = DOCUMENT_MAPPING[section_num]
-        print(f"Собираю раздел {section_num}: {config['title']}...")
 
-        # Заголовок раздела верхнего уровня
-        section_header = f"\n## {section_num}. {config['title']}\n"
-        sections.append(section_header)
-        all_content.append(section_header)
+        # Специальная обработка раздела 8 (AI-анализ противоречий)
+        if section_num == "8":
+            print(f"Собираю раздел {section_num}: {config['title']}...")
+            section_header = f"\n## {section_num}. {config['title']}\n"
+            sections.append(section_header)
 
-        # Собираем подразделы если есть
-        if 'subsections' in config:
-            # Сортируем подразделы
-            subsection_keys = sorted(config['subsections'].keys(),
-                                    key=lambda x: tuple(map(int, x.split('.'))))
-
-            for subsection_num in subsection_keys:
-                subconfig = config['subsections'][subsection_num]
-                print(f"  └─ Подраздел {subsection_num}: {subconfig['title']}...")
-                subsection_content = build_section(subsection_num, subconfig)
-                sections.append(subsection_content)
-                all_content.append(subsection_content)
-        else:
-            # Старый формат без подразделов (для обратной совместимости)
-            section_content = build_section(section_num, config)
-            sections.append(section_content)
-            all_content.append(section_content)
-
-    # Добавляем раздел 6: Анализ противоречий по всему репозиторию
-    print("Собираю раздел 6: Заключение о противоречиях...")
-    sections.append("\n## 6. Заключение о противоречиях и несоответствиях\n")
-
-    if use_ai:
-        combined_content = '\n'.join(all_content)
-        analysis_section = analyze_contradictions_with_ai(combined_content)
-        # Убираем заголовок ## 9. из AI-ответа если есть, так как мы уже добавили ## 6.
-        analysis_section = analysis_section.replace("## 9. Заключение о противоречиях и несоответствиях", "")
-        sections.append(analysis_section)
-    else:
-        sections.append("""
+            if use_ai:
+                combined_content = '\n'.join(all_content)
+                analysis_section = analyze_contradictions_with_ai(combined_content)
+                # Убираем заголовок ## из AI-ответа если есть, так как мы уже добавили его
+                analysis_section = re.sub(r'^##\s*\d+\.\s*Заключение.*\n', '', analysis_section, flags=re.MULTILINE)
+                sections.append(analysis_section)
+            else:
+                sections.append("""
 ### Методика проверки
 
 AI-анализ (при включении) проверяет **ВСЕ документы репозитория** на предмет:
@@ -724,6 +770,28 @@ AI-анализ (при включении) проверяет **ВСЕ доку
 python3 ops/build_check_document.py --ai-analysis
 ```
 """)
+            continue
+
+        # Обычная обработка разделов 1-7
+        print(f"Собираю раздел {section_num}: {config['title']}...")
+
+        # Заголовок раздела верхнего уровня
+        section_header = f"\n## {section_num}. {config['title']}\n"
+        sections.append(section_header)
+        all_content.append(section_header)
+
+        # Собираем подразделы если есть
+        if 'subsections' in config:
+            # Сортируем подразделы
+            subsection_keys = sorted(config['subsections'].keys(),
+                                    key=lambda x: tuple(map(int, x.split('.'))))
+
+            for subsection_num in subsection_keys:
+                subconfig = config['subsections'][subsection_num]
+                print(f"  └─ Подраздел {subsection_num}: {subconfig['title']}...")
+                subsection_content = build_section(subsection_num, subconfig)
+                sections.append(subsection_content)
+                all_content.append(subsection_content)
 
     # Собираем финальный документ
     full_document = header + '\n'.join(sections)
@@ -762,7 +830,7 @@ def main():
     print(f"📊 Размер: {len(document)} символов")
 
     if args.ai_analysis:
-        print(f"\n🤖 AI-анализ противоречий включен в раздел 9")
+        print(f"\n🤖 AI-анализ противоречий включен в раздел 8")
     else:
         print(f"\n💡 Для AI-анализа противоречий запустите:")
         print(f"   export OPENAI_API_KEY=your_key")
