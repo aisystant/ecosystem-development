@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "content/0. Управление/0.1. Входящее.md",
+                "file": "content/0. Управление/0.6. Структура этого хранилища.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "0.1. Входящее"
+              "title": "0.6. Структура этого хранилища"
             }
           }
         ]
@@ -173,17 +173,20 @@
   },
   "active": "04cbb09f9ac9a501",
   "lastOpenFiles": [
+    "ops/validate_classifications.py.tmp.10897.1762964378342",
+    "ops/save_manual_edits.py.tmp.10897.1762964360311",
+    "ops/save_manual_edits.py.tmp.10897.1762964343791",
+    "ops/classify_documents.py.tmp.10897.1762964311818",
+    "ops/classify_documents.py.tmp.10897.1762964299499",
+    "ops/classify_documents.py.tmp.10897.1762964287934",
+    "ops/classify_documents.py.tmp.10897.1762964279877",
+    "content/0. Управление/0.1. Входящее.md",
     "content/0. Управление/0.6. Структура этого хранилища.md",
     "content/0. Управление/0.7. Классификация документов и теги.md",
-    "content/0. Управление/0.1. Входящее.md",
     "repo_full_2025-11-11.zip",
     "repo_full.zip",
     "ops/validate_classifications.py",
     "ops/save_manual_edits.py",
-    "ops/manual_classifications.json",
-    "ops/classify_documents.py",
-    "ops/build_check_document.sh",
-    "ops/build_check_document.py",
     "ops/USAGE_WINDOWS.md",
     "ops/USAGE.md",
     "ops/SETUP_GUIDE.md",
@@ -195,8 +198,6 @@
     "content/2. Продвижение/Манифест.md",
     "content/2. Продвижение/2.5. Маркетинговые материлы.md",
     "content/0. Управление/0.2. План работ.md",
-    "content/0. Управление/0.6. Структура этого хранилища.md.tmp.10897.1762888185814",
-    "ops/save_manual_edits.py.tmp.10897.1762887406357",
     "content/0. Управление/0.5. Проверочный документ.md",
     "content/0. Управление/0.91. Структура проверочного документа.md",
     "conflict-files-obsidian-git.md",
@@ -207,7 +208,6 @@
     "content/4. Системы/4.8. Системы приема оплаты фиатом.md",
     "content/4. Системы/4.9. Биллинг.md",
     "content/templates/Agent-Template.md",
-    "content/agents/00-Index.md",
-    "content/4. Системы/4.7. CRM.md"
+    "content/agents/00-Index.md"
   ]
 }

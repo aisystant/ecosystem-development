@@ -38,38 +38,28 @@ CLASSIFICATION_AXES = {
 
 def extract_value_from_cell(cell: str) -> str:
     """
-    Извлекает значение из ячейки таблицы, убирая любые HTML теги
+    Извлекает значение из ячейки таблицы, убирая эмодзи-маркеры
 
     Поддерживаемые форматы:
-    - <mark>value</mark> - желтый (AI-предложение)
-    - <span style="background-color: lightgreen">value</span> - зеленый (ручная правка)
+    - 🟡 value - желтый круг (AI-предложение)
+    - 🟢 value - зеленый круг (ручная правка)
     - value - обычный текст
 
     Args:
         cell: содержимое ячейки
 
     Returns:
-        Чистое значение без тегов
+        Чистое значение без эмодзи
     """
     cell = cell.strip()
 
-    # Убираем желтый <mark> тег
-    mark_pattern = r'<mark>(.*?)</mark>'
-    match = re.search(mark_pattern, cell)
-    if match:
-        return match.group(1).strip()
+    # Убираем желтый круг 🟡
+    if cell.startswith('🟡'):
+        return cell.replace('🟡', '').strip()
 
-    # Убираем зеленый <span> тег
-    green_pattern = r'<span style="background-color: lightgreen">(.*?)</span>'
-    match = re.search(green_pattern, cell)
-    if match:
-        return match.group(1).strip()
-
-    # Убираем любые другие HTML теги
-    tag_pattern = r'<[^>]+>(.*?)</[^>]+>'
-    match = re.search(tag_pattern, cell)
-    if match:
-        return match.group(1).strip()
+    # Убираем зеленый круг 🟢
+    if cell.startswith('🟢'):
+        return cell.replace('🟢', '').strip()
 
     return cell
 
