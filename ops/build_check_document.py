@@ -98,14 +98,14 @@ DOCUMENT_MAPPING = {
             "3.2": {
                 "title": "Концепция использования для ролей",
                 "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
-                "extract_sections": ["## F. Концепция использования"]
+                "extract_sections": ["## H. Концепция использования"]
             }
         }
     },
     "4": {
         "title": "Структура ИИ-платформы",
         "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
-        "extract_sections": ["## C. Список подсистем"]
+        "extract_sections": ["## C. Карта подсистем и интеграций", "## D. Мультиагентная ОС"]
     },
     "5": {
         "title": "Список подсистем",
@@ -115,7 +115,7 @@ DOCUMENT_MAPPING = {
     "6": {
         "title": "Функциональная схема взаимодействия",
         "sources": ["1. Идеи развития экосистемы/1.4. Концепция функционирования экосистемы для ЦА.md"],
-        "extract_sections": ["## D. Данные и МИМ"]
+        "extract_sections": ["## E. Данные и МИМ"]
     },
     "7": {
         "title": "Процесс разработки",
@@ -222,12 +222,13 @@ def extract_section_content_without_header(content: str, section_header: str) ->
             continue  # Пропускаем эту строку
 
         if capturing:
-            # Останавливаем захват при встрече ЛЮБОГО заголовка (H1-H6)
-            # Это предотвратит захват подразделов
-            if line.startswith('#') and not line.startswith('#' * 7):  # Любой заголовок от H1 до H6
-                # Встретили новый раздел - останавливаем
-                capturing = False
-                continue
+            # Останавливаем захват при встрече заголовка того же или более высокого уровня
+            if line.startswith('#') and not line.startswith('#' * 7):  # Это заголовок (H1-H6)
+                line_level = len(line) - len(line.lstrip('#'))
+                # Останавливаем только если уровень заголовка <= текущего уровня
+                if line_level <= current_level:
+                    capturing = False
+                    continue
 
             # Добавляем строку в результат
             result.append(line)
@@ -807,6 +808,12 @@ python3 ops/build_check_document.py --ai-analysis
                 subsection_content = build_section(subsection_num, subconfig)
                 sections.append(subsection_content)
                 all_content.append(subsection_content)
+        else:
+            # Если нет подразделов, но есть контент самого раздела (sources)
+            if 'sources' in config:
+                section_content = build_section(section_num, config)
+                sections.append(section_content)
+                all_content.append(section_content)
 
     # Собираем финальный документ
     full_document = header + '\n'.join(sections)
