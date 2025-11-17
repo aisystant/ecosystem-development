@@ -166,9 +166,7 @@
       "daily-notes:Сегодняшняя заметка": false,
       "templates:Вставить шаблон": false,
       "command-palette:Открыть палитру команд": false,
-      "bases:Создать новую базу": false,
-      "obsidian-git:Open Git source control": false,
-      "obsidian-shellcommands:Shell commands: Custom variables": false
+      "bases:Создать новую базу": false
     }
   },
   "active": "b9fad065c1fc131c",
