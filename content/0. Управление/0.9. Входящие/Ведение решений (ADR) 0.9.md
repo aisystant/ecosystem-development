@@ -1,4 +1,5 @@
 ---
+
 type: doc
 audience: mixed
 edit_mode: mixed
@@ -9,6 +10,7 @@ status: in_progress
 version: 0.1
 created: 2025-11-13
 ---
+
 
 # Ведение решений (ADR) 0.9
 
@@ -196,7 +198,7 @@ WHERE contains(item, "ADR-")
 **Модель данных и доступа:** Требует отдельной проработки совместно с @TserenTserenov
 **Связи между артефактами:**
 - Использование ссылок между репозиториями
-- Метаданные в frontmatter документов
+- Frontmatter в frontmatter документов
 - API для интеграции между системами
 
 **Последствия:**

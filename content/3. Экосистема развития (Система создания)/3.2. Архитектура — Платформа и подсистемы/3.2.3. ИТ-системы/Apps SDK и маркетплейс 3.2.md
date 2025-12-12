@@ -1,4 +1,5 @@
 ---
+
 type: doc
 audience: mixed
 edit_mode: manual
@@ -9,6 +10,7 @@ status: draft
 version: 0.1
 created: 2025-11-12
 ---
+
 
 # 15. Apps SDK и маркетплейс ассистентов
 
@@ -61,7 +63,7 @@ created: 2025-11-12
 
 - **Backend:** Node.js/Python для SDK, Go для Registry, Kubernetes для orchestration
 - **Frontend:** Next.js для маркетплейса, React для SDK UI
-- **База данных:** PostgreSQL (метаданные ассистентов), Redis (кеш), S3 (манифесты и assets)
+- **База данных:** PostgreSQL (Frontmatter ассистентов), Redis (кеш), S3 (манифесты и assets)
 - **Инфраструктура:** Kubernetes, Docker, GitHub Actions (CI/CD), Cloudflare CDN
 
 ## Интеграции
@@ -216,7 +218,7 @@ GET  /admin/analytics                        # Аналитика маркетп
 - [[4.9. Биллинг]] — монетизация
 - [[4.10. Финансовая система токеномики]] — распределение доходов
 - [[4.0. Информация]] — обзор раздела Системы
-- [[0.7. Классификация документов и теги]] — метаданные
+- [[0.7. Классификация документов и теги]] — Frontmatter
 
 ## История изменений
 
