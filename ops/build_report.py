@@ -552,33 +552,32 @@ class ReportGenerator:
                     complete_docs += 1
 
             # Оценка статуса согласно ТЗ (п. 2.3)
-            # 🟢 Полный: ≥ 70% типичных документов присутствуют И отвечают на главный вопрос
-            # 🟡 Частичный: 30–69% типичных документов присутствуют ИЛИ документы неполные
+            # 🟢 Полный: ≥ 70% типичных документов присутствуют И ≥ 50% не-заглушек с достаточным содержанием
+            # 🟡 Частичный: 30–69% типичных документов ИЛИ есть содержательные документы
             # 🔴 Минимальный: < 30% типичных документов ИЛИ только заглушки
 
             typical_ratio = found_typical / len(typical_patterns) if typical_patterns else 0
             meaningful_ratio = meaningful_docs / count if count > 0 else 0
+            complete_docs = sum(1 for doc in docs if not self._is_stub_document(doc) and len(doc.body.split()) >= 300)
             complete_ratio = complete_docs / count if count > 0 else 0
 
             if typical_ratio >= 0.7 and complete_ratio >= 0.5:
                 status = "🟢"
                 comment = "Ключевые документы присутствуют"
-            elif typical_ratio >= 0.3 or meaningful_ratio >= 0.5:
+            elif typical_ratio >= 0.3 and meaningful_ratio >= 0.2:
                 status = "🟡"
-                if complete_ratio < 0.3:
-                    comment = f"{int(complete_ratio*100)}% отвечают на главный вопрос"
-                elif meaningful_ratio < 0.5:
-                    comment = f"{int(meaningful_ratio*100)}% содержательных документов"
+                if complete_ratio < 0.1:
+                    comment = f"Только заглушки ({count - complete_docs}/{count} документов)"
                 else:
-                    comment = f"Найдено {found_typical}/{len(typical_patterns)} типичных"
+                    comment = f"{int(complete_ratio*100)}% содержательных документов"
             else:
                 status = "🔴"
                 if count == 0:
                     comment = "Документы отсутствуют"
+                elif complete_docs == 0:
+                    comment = f"Только заглушки ({count} документов)"
                 elif found_typical == 0:
                     comment = f"Нет типичных документов (есть {count} других)"
-                elif meaningful_docs == 0:
-                    comment = f"Только заглушки ({count} документов)"
                 else:
                     comment = f"Недостаточно содержательных документов"
 
