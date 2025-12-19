@@ -278,6 +278,45 @@ GitHub Actions автоматически:
 - Проверяет markdown линтером
 - Генерирует отчёты по расписанию
 
+## Claude Code и FPF
+
+Репозиторий интегрирован с **Claude Code** и **First Principles Framework** (FPF) Анатолия Левенчука.
+
+### Архитектура контекста
+
+```
+CLAUDE.md (~1K токенов)              ← загружается автоматически
+    ├── Ключевые принципы FPF
+    ├── Терминология проекта
+    └── Таблица навигации по FPF
+
+.fpf/INDEX.md                        ← индекс для навигации
+    └── Карта частей FPF-Spec.md
+
+.fpf/FPF-Spec.md (~800K токенов)     ← загружается по частям
+    └── Полная спецификация FPF
+```
+
+### Как это работает
+
+1. **CLAUDE.md** — инструкции для Claude Code с ключевыми принципами FPF
+2. **INDEX.md** — навигационный индекс для выборочной загрузки частей FPF
+3. **FPF-Spec.md** — полная спецификация (читается по частям через offset/limit)
+
+### Обновление FPF
+
+```bash
+# Mac / Linux
+curl -fsSL https://raw.githubusercontent.com/ailev/FPF/main/FPF-Spec.md -o .fpf/FPF-Spec.md
+git add .fpf && git commit -m "chore: update FPF" && git push
+```
+
+### Документация
+
+- [Claude Code и FPF 0.2](content/0.%20Управление/0.2.%20Процессы%20работы%20с%20хранилищем/Claude%20Code%20и%20FPF%200.2.md) — полное описание работы Claude Code с FPF
+- [CLAUDE.md](CLAUDE.md) — инструкции для Claude Code
+- [.fpf/INDEX.md](.fpf/INDEX.md) — навигация по частям FPF
+
 ## Вклад в проект
 
 См. [CONTRIBUTING.md](CONTRIBUTING.md) для подробного руководства по участию в проекте.
