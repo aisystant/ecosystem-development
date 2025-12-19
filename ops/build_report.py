@@ -1049,27 +1049,32 @@ class ReportGenerator:
 
     def _completeness_summary(self) -> str:
         """Executive Summary для содержательной полноты."""
+        # Общий % полных документов
+        full_docs = sum(1 for d in self.documents if d.is_full)
         total_docs = len(self.documents)
-        expected_total = 71  # Сумма ожидаемых
-        completeness = min(100, int(total_docs / expected_total * 100))
+        completeness = int(full_docs / total_docs * 100) if total_docs > 0 else 0
 
-        # Найти самые полные и самые пустые семейства
+        # % полных документов по каждому семейству (F1-F9)
         family_ratios = {}
-        expected = {"F1": 8, "F2": 6, "F3": 6, "F4": 6, "F5": 8, "F6": 6, "F7": 6, "F8": 15, "F9": 10}
-        for f, exp in expected.items():
-            count = len(self.by_family.get(f, []))
-            family_ratios[f] = count / exp
+        for f in ["F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9"]:
+            docs = self.by_family.get(f, [])
+            if docs:
+                full_count = sum(1 for d in docs if d.is_full)
+                family_ratios[f] = full_count / len(docs)
+            else:
+                family_ratios[f] = 0
 
         best = max(family_ratios, key=family_ratios.get)
         worst = min(family_ratios, key=family_ratios.get)
 
-        gaps = [f for f, ratio in family_ratios.items() if ratio < 0.4]
+        # Критические пробелы: семейства с <50% полных документов
+        gaps = [f for f, ratio in family_ratios.items() if ratio < 0.5]
 
         summary = "## 1. Executive Summary\n\n"
-        summary += f"- **Общая содержательная полнота:** {completeness}%\n"
+        summary += f"- **Общая содержательная полнота:** {completeness}% ({full_docs}/{total_docs} документов полные)\n"
         summary += f"- **Наиболее полное семейство:** {best} ({FAMILIES[best]['name']}) — {int(family_ratios[best]*100)}%\n"
         summary += f"- **Наименее полное семейство:** {worst} ({FAMILIES[worst]['name']}) — {int(family_ratios[worst]*100)}%\n"
-        summary += f"- **Критические пробелы:** {', '.join(gaps) if gaps else 'нет'}\n\n"
+        summary += f"- **Критические пробелы (<50%):** {', '.join(gaps) if gaps else 'нет'}\n\n"
 
         return summary + "---\n\n"
 
