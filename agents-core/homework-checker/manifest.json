@@ -1,0 +1,9 @@
+{
+  "name": "Homework Checker",
+  "role": "homework evaluation assistant",
+  "description": "Проверяет домашние задания стажёров по нормативам из репозитория, используя LLM для оценки соответствия критериям.",
+  "inputs": ["LMS check_request", "content/guides", "data/questions_map", "data/rubrics"],
+  "outputs": ["artifacts/homework-checker/results"],
+  "tools": ["claude-api", "yaml-parser", "markdown-extractor"],
+  "metrics": ["accuracy", "consistency", "response_time", "student_satisfaction"]
+}
