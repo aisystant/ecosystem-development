@@ -1,0 +1,74 @@
+# Конфигурация ДЗ-чекера
+# Скопируйте в config.local.yaml и настройте под своё окружение
+
+version: "1.0"
+
+# Настройки LLM
+llm:
+  provider: anthropic          # anthropic, openai, google
+  model: claude-3-5-sonnet-20241022
+  max_tokens: 2000
+  temperature: 0.3             # Низкая температура для консистентных оценок
+  # api_key: ${ANTHROPIC_API_KEY}  # Берётся из переменной окружения
+
+# Пути к данным
+paths:
+  questions_map: data/questions_map.yaml
+  rubrics: data/rubrics.yaml
+  prompts_dir: data/prompts
+  guides_root: ../../content/guides
+
+# Настройки вывода
+output:
+  format: json                 # json или markdown
+  include_model_info: true     # Добавлять информацию о модели
+  include_normative_reference: true  # Добавлять ссылку на источник
+  markdown_template: |
+    **{verdict_emoji} {verdict_text}** ({score}/100)
+
+    **Сильные стороны:**
+    {strengths_list}
+
+    **Замечания:**
+    {issues_list}
+
+    **Следующий шаг:**
+    {next_step}
+
+    ---
+    {model_info}
+    {reference_info}
+
+# Пороги автоматического решения
+thresholds:
+  auto_accept: 80              # Автоматически принять если score >= 80
+  needs_review: 60             # Отправить наставнику если 60 <= score < 80
+  auto_reject: 40              # Автоматически отклонить если score < 40
+
+# Маппинг вердиктов
+verdicts:
+  accepted:
+    emoji: "✓"
+    text: "Принято"
+    color: green
+  needs_revision:
+    emoji: "⟳"
+    text: "На доработку"
+    color: yellow
+  rejected:
+    emoji: "✗"
+    text: "Не принято"
+    color: red
+
+# Логирование
+logging:
+  level: INFO                  # DEBUG, INFO, WARNING, ERROR
+  file: logs/homework_checker.log
+  include_prompts: false       # Сохранять полные промпты (осторожно с размером)
+  include_responses: true      # Сохранять ответы LLM
+
+# Метрики (для будущего)
+metrics:
+  enabled: false
+  backend: prometheus          # prometheus, statsd
+  # endpoint: localhost:9090

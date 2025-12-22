@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://aisystant.system-school.ru/schemas/homework-checker/check_request.json",
+  "title": "CheckRequest",
+  "description": "Пакет запроса на проверку ДЗ от LMS к ДЗ-чекеру",
+  "type": "object",
+  "required": ["packet_type", "version", "attempt_id", "student_id", "question", "answer"],
+  "properties": {
+    "packet_type": {
+      "type": "string",
+      "const": "check_request",
+      "description": "Тип пакета"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Версия формата пакета"
+    },
+    "attempt_id": {
+      "type": "string",
+      "description": "Уникальный идентификатор попытки ответа"
+    },
+    "student_id": {
+      "type": "string",
+      "description": "Идентификатор студента"
+    },
+    "question": {
+      "type": "object",
+      "required": ["id", "text"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Идентификатор вопроса (используется для поиска в карте вопросов)"
+        },
+        "text": {
+          "type": "string",
+          "description": "Текст вопроса"
+        },
+        "course_id": {
+          "type": "string",
+          "description": "Идентификатор курса"
+        },
+        "lesson_id": {
+          "type": "string",
+          "description": "Идентификатор урока"
+        }
+      }
+    },
+    "answer": {
+      "type": "object",
+      "required": ["text", "submitted_at"],
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "Текст ответа студента"
+        },
+        "submitted_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Время отправки ответа (ISO 8601)"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Дополнительные метаданные от LMS",
+      "properties": {
+        "guide_hint": {
+          "type": "string",
+          "description": "Подсказка о разделе руководства (если LMS знает)"
+        },
+        "expected_concepts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Ожидаемые ключевые понятия"
+        },
+        "previous_attempts": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Количество предыдущих попыток"
+        }
+      }
+    }
+  }
+}

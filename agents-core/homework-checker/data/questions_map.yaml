@@ -1,0 +1,65 @@
+# Карта вопросов ДЗ → материалы репозитория
+# Связывает идентификаторы вопросов из LMS с источниками в репозитории
+
+version: "1.0"
+
+# Курс: Системное мышление
+courses:
+  systems-thinking-101:
+    title: "Системное мышление"
+    guide_root: "content/guides/systems-thinking"
+
+    questions:
+      # Глава 1: Физический мир и ментальное пространство
+      q_phys_world_01:
+        title: "Множество описаний физического мира"
+        lesson_id: "lesson_01"
+        guide_path: "chapter-01.md"
+        guide_section: "1.1. Физический мир и ментальное пространство"
+        rubric_id: "rubric_conceptual_understanding"
+        keywords:
+          - модель
+          - описание
+          - физический мир
+          - свойства
+        expected_length: "medium"  # short, medium, long
+
+      q_conscious_learning:
+        title: "Осознанное vs неосознанное обучение"
+        lesson_id: "lesson_01"
+        guide_path: "chapter-01.md"
+        guide_section: "1.2. Осознанное обучение"
+        rubric_id: "rubric_deep_understanding"
+        keywords:
+          - осознанное обучение
+          - неосознанное обучение
+          - системное мышление
+          - игровая форма
+        expected_length: "medium"
+
+      q_worldview_mix:
+        title: "Суровые и ненаучные картины мира"
+        lesson_id: "lesson_01"
+        guide_path: "chapter-01.md"
+        guide_section: "1.3. Картины мира"
+        rubric_id: "rubric_reflection"
+        keywords:
+          - картина мира
+          - научная
+          - ненаучная
+          - повседневная жизнь
+        expected_length: "long"
+
+# Шаблон для добавления нового курса:
+#   course-id:
+#     title: "Название курса"
+#     guide_root: "content/guides/course-folder"
+#     questions:
+#       question_id:
+#         title: "Название вопроса"
+#         lesson_id: "lesson_XX"
+#         guide_path: "chapter-XX.md"
+#         guide_section: "X.X. Название раздела"
+#         rubric_id: "rubric_id"
+#         keywords: [...]
+#         expected_length: "short|medium|long"

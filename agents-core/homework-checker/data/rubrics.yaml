@@ -1,0 +1,170 @@
+# Рубрики для проверки домашних заданий
+# Каждая рубрика содержит критерии с весами
+
+version: "1.0"
+
+rubrics:
+  # Базовая рубрика: понимание концепции
+  rubric_conceptual_understanding:
+    name: "Понимание концепции"
+    description: "Оценивает, насколько студент понял основную идею из материала"
+    total_points: 100
+    passing_score: 60
+    criteria:
+      - id: main_idea
+        name: "Ключевая идея"
+        weight: 40
+        description: "Студент передал ключевую идею из материала своими словами"
+        levels:
+          - score: 40
+            description: "Идея передана точно и полно"
+          - score: 25
+            description: "Идея передана частично или с неточностями"
+          - score: 10
+            description: "Идея упомянута, но искажена"
+          - score: 0
+            description: "Ключевая идея не передана"
+
+      - id: own_example
+        name: "Собственный пример"
+        weight: 30
+        description: "Приведён собственный пример, иллюстрирующий понимание"
+        levels:
+          - score: 30
+            description: "Пример релевантный, оригинальный и хорошо иллюстрирует концепцию"
+          - score: 20
+            description: "Пример приведён, но мог бы быть лучше"
+          - score: 10
+            description: "Пример слабо связан с концепцией"
+          - score: 0
+            description: "Пример отсутствует"
+
+      - id: terminology
+        name: "Терминология"
+        weight: 20
+        description: "Корректно использована терминология из курса"
+        levels:
+          - score: 20
+            description: "Термины использованы правильно"
+          - score: 10
+            description: "Термины использованы, но с неточностями"
+          - score: 0
+            description: "Терминология не использована или использована неправильно"
+
+      - id: completeness
+        name: "Полнота"
+        weight: 10
+        description: "Ответ полный, без очевидных пропусков"
+        levels:
+          - score: 10
+            description: "Ответ полный"
+          - score: 5
+            description: "Есть незначительные пропуски"
+          - score: 0
+            description: "Ответ неполный"
+
+  # Рубрика для глубокого понимания
+  rubric_deep_understanding:
+    name: "Глубокое понимание"
+    description: "Оценивает глубину понимания и способность к анализу"
+    total_points: 100
+    passing_score: 65
+    criteria:
+      - id: core_concept
+        name: "Суть концепции"
+        weight: 35
+        description: "Раскрыта суть концепции, не только поверхностное описание"
+        levels:
+          - score: 35
+            description: "Суть раскрыта глубоко"
+          - score: 25
+            description: "Суть раскрыта на среднем уровне"
+          - score: 15
+            description: "Поверхностное понимание"
+          - score: 0
+            description: "Суть не раскрыта"
+
+      - id: reasoning
+        name: "Аргументация"
+        weight: 35
+        description: "Приведена аргументация, объяснено 'почему'"
+        levels:
+          - score: 35
+            description: "Убедительная аргументация"
+          - score: 25
+            description: "Есть аргументы, но не все убедительны"
+          - score: 15
+            description: "Слабая аргументация"
+          - score: 0
+            description: "Аргументация отсутствует"
+
+      - id: connections
+        name: "Связи"
+        weight: 20
+        description: "Установлены связи с другими понятиями курса"
+        levels:
+          - score: 20
+            description: "Связи установлены и обоснованы"
+          - score: 10
+            description: "Связи упомянуты, но не раскрыты"
+          - score: 0
+            description: "Связи не установлены"
+
+      - id: reflection
+        name: "Рефлексия"
+        weight: 10
+        description: "Есть элемент личной рефлексии или применения к своему опыту"
+        levels:
+          - score: 10
+            description: "Есть осмысленная рефлексия"
+          - score: 5
+            description: "Формальная рефлексия"
+          - score: 0
+            description: "Рефлексия отсутствует"
+
+  # Рубрика для рефлексивных заданий
+  rubric_reflection:
+    name: "Рефлексивное задание"
+    description: "Оценивает способность к рефлексии и критическому осмыслению"
+    total_points: 100
+    passing_score: 55
+    criteria:
+      - id: understanding
+        name: "Понимание проблемы"
+        weight: 30
+        description: "Студент понял суть вопроса/проблемы"
+        levels:
+          - score: 30
+            description: "Проблема понята верно"
+          - score: 20
+            description: "Частичное понимание"
+          - score: 0
+            description: "Проблема не понята"
+
+      - id: personal_analysis
+        name: "Личный анализ"
+        weight: 40
+        description: "Представлен собственный анализ, а не пересказ материала"
+        levels:
+          - score: 40
+            description: "Глубокий личный анализ"
+          - score: 25
+            description: "Есть элементы анализа"
+          - score: 10
+            description: "В основном пересказ"
+          - score: 0
+            description: "Только пересказ или нет анализа"
+
+      - id: examples_from_life
+        name: "Примеры из жизни"
+        weight: 30
+        description: "Приведены релевантные примеры из личного опыта"
+        levels:
+          - score: 30
+            description: "Примеры убедительные и релевантные"
+          - score: 20
+            description: "Примеры есть, но могли бы быть лучше"
+          - score: 10
+            description: "Примеры слабые или нерелевантные"
+          - score: 0
+            description: "Примеры отсутствуют"
