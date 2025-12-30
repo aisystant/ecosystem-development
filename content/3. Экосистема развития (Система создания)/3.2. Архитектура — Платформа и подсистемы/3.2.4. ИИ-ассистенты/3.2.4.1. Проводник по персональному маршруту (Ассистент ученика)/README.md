@@ -19,6 +19,36 @@
 | Документ | Описание |
 |----------|----------|
 | [[Описание ИИ-ассистента Проводник (Ассистент Ученика) 3.2]] | Назначение, ступени развития, сценарии использования |
+| [[privacy-policy]] | Privacy Policy для OpenAI Apps |
+| [[terms-of-service]] | Terms of Service для OpenAI Apps |
+| [[demo-recording-guide]] | Инструкция для записи демо-видео |
+
+---
+
+## OpenAI Apps — Документы для ревью
+
+Для регистрации в [OpenAI Apps](https://platform.openai.com/apps-manage) требуются:
+
+| Требование | Файл | Статус |
+|------------|------|--------|
+| **Privacy Policy URL** | [privacy-policy.md](./privacy-policy.md) | Создан |
+| **Terms of Service URL** | [terms-of-service.md](./terms-of-service.md) | Создан |
+| **Demo Recording URL** | [demo-recording-guide.md](./demo-recording-guide.md) | Инструкция готова, видео нужно записать |
+
+### Публичные URL
+
+После публикации через GitHub Pages или другой хостинг, URL будут выглядеть примерно так:
+
+```
+Privacy Policy: https://aisystant.github.io/ecosystem-development/.../privacy-policy.html
+Terms of Service: https://aisystant.github.io/ecosystem-development/.../terms-of-service.html
+```
+
+**Альтернативы для публикации:**
+- GitHub Pages (этот репозиторий)
+- Notion Public Page
+- Google Docs (Published)
+- Отдельная страница на aisystant.com
 
 ---
 
