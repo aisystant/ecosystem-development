@@ -12,19 +12,6 @@ Instructions for recording a demo video for OpenAI App Review.
 
 ---
 
-## About Learning Copilot
-
-Learning Copilot helps users develop their role as a learner:
-
-- **Assess learning stage** (from Random to Proactive)
-- **Plan weekly learning rhythm** with pomodoros
-- **Review progress** and track habits
-- **Identify memes** — limiting beliefs that block learning
-
-The Service is powered by an MCP server on Cloudflare Workers implementing a Finite State Machine (FSM).
-
----
-
 ## Recording Scenario
 
 ### 1. Preparation (do not record)
@@ -44,89 +31,41 @@ Show:
 #### Scene 2: Initial Greeting (30 sec)
 
 **Request:** "Hello"
-```
-User: Hello
-```
 
 Show:
 - Tool call: `get_instruction()` → returns `init` state
-- Response with menu of available actions:
-  - Review the week
-  - Plan learning
-  - Assess my stage
-  - Set goals
-  - Debug a blocker
-
-Explain: "The assistant calls the MCP server and receives instructions for the current state"
+- Response with menu: Review week, Plan learning, Assess stage, Debug blocker
+- Explain: "The assistant calls the MCP server and receives instructions for the current state"
 
 #### Scene 3: Stage Assessment Flow (1–1.5 min)
 
 **Request:** "Assess my learning stage"
-```
-User: Assess my learning stage
-```
 
 Show:
 - Tool call: `get_instruction(state: "test_start")`
-- Assistant asks diagnostic questions about learning habits
+- Assistant asks diagnostic questions
 
-**User response:**
-```
-User: I try to study every day but often lose the rhythm after a week
-```
+**User response:** "I try to study every day but often lose the rhythm"
 
 Show:
 - Tool call: `get_instruction(state: "assess_stage")`
-- Result: "Your stage: Practicing"
-- Explanation of criteria and recommendations for next level
+- Result: "Your stage: Practicing" with recommendations
 
-#### Scene 4: Navigation Demo (30 sec)
+#### Scene 4: Navigation & Architecture (30 sec)
 
 **Request:** "Go back to start"
-```
-User: Go back to start
-```
 
 Show:
 - Transition back to `init` state
-- Menu appears again
 
-Explain: "State transitions happen through explicit user actions. The FSM ensures predictable, structured dialogue."
-
-#### Scene 5: Architecture Explanation (30 sec)
-
-Explain by voice or text:
-- "Each state has a specific purpose and defined transitions"
-- "The MCP server returns instructions; the LLM follows them"
+Explain:
+- "State transitions happen through explicit user actions"
 - "FSM architecture: state → instruction → response → next state"
 
 ### 3. Conclusion
 
 - Show that the session ends correctly
-- You can show the Developer console with tool calls
-
----
-
-## Key Scenarios to Demonstrate
-
-| Scenario | States Flow |
-|----------|-------------|
-| **Stage Assessment** | init → test_start → test_questions → assess_stage → assessment_result → init |
-| **Weekly Planning** | init → plan_entry → plan_by_days → plan_invariants → plan_save → init |
-| **Weekly Review** | init → weekly_reflection → weekly_reflection_save → next_week_planning → init |
-| **Blocker Debug** | init → blocker_debug → meme_experiment → init |
-
----
-
-## Learning Stages (for context)
-
-| Stage | Timeframe | Key Indicator |
-|-------|-----------|---------------|
-| Random | — | No regular practice |
-| Practicing | 1–2 weeks | Tries but loses rhythm |
-| Systematic | 1–2 months | Stable rhythm |
-| Disciplined | 3–6 months | Practice as habit |
-| Proactive | 6+ months | Initiative and knowledge sharing |
+- Optionally show Developer console with tool calls
 
 ---
 
@@ -137,7 +76,6 @@ Explain by voice or text:
 | **Loom** | Free, fast, public link |
 | **YouTube (unlisted)** | "Unlisted" — access by link |
 | **Google Drive** | Access "Anyone with the link" |
-| **Cloudflare Stream** | If you have an account |
 
 ---
 
@@ -152,31 +90,13 @@ Explain by voice or text:
 
 ---
 
-## Example Tool Calls (for demonstration)
+## Example Tool Call
 
-**Initial state request:**
-```json
-{
-  "name": "get_instruction",
-  "arguments": {}
-}
-```
-
-Response:
-```json
-{
-  "state": "init",
-  "instructions": "Greet the user and offer main actions...",
-  "transitions": ["test_start", "plan_entry", "weekly_reflection", "blocker_debug"]
-}
-```
-
-**Stage assessment request:**
 ```json
 {
   "name": "get_instruction",
   "arguments": {
-    "state": "assess_stage"
+    "state": "test_start"
   }
 }
 ```
@@ -184,9 +104,9 @@ Response:
 Response:
 ```json
 {
-  "state": "assess_stage",
-  "instructions": "Based on user responses, determine their learning stage...",
-  "transitions": ["assessment_result", "init"]
+  "state": "test_start",
+  "instructions": "Ask diagnostic questions about learning habits...",
+  "transitions": ["assess_stage", "init"]
 }
 ```
 
@@ -197,7 +117,6 @@ Response:
 1. Upload the video to your chosen platform
 2. Copy the public link
 3. Add the link to the OpenAI Apps form: **Demo Recording URL**
-4. Update this document with the final link
 
 ---
 
