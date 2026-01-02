@@ -12,6 +12,19 @@ Instructions for recording a demo video for OpenAI App Review.
 
 ---
 
+## About Learning Copilot
+
+Learning Copilot helps users develop their role as a learner:
+
+- **Assess learning stage** (from Random to Proactive)
+- **Plan weekly learning rhythm** with pomodoros
+- **Review progress** and track habits
+- **Identify memes** — limiting beliefs that block learning
+
+The Service is powered by an MCP server on Cloudflare Workers implementing a Finite State Machine (FSM).
+
+---
+
 ## Recording Scenario
 
 ### 1. Preparation (do not record)
@@ -28,54 +41,92 @@ Show:
 - ChatGPT interface with the connected app
 - The name "Learning Copilot" in the tools/actions list
 
-#### Scene 2: Main Scenario (1.5–2 min)
+#### Scene 2: Initial Greeting (30 sec)
 
-**Request 1:** "Let's summarize the week"
+**Request:** "Hello"
 ```
-User: Let's summarize the week
+User: Hello
 ```
+
 Show:
-- Tool call to the MCP server
-- Response with widget and action buttons
-- Explain: "The assistant calls the fsm-mcp server and receives instructions for the current state"
+- Tool call: `get_instruction()` → returns `init` state
+- Response with menu of available actions:
+  - Review the week
+  - Plan learning
+  - Assess my stage
+  - Set goals
+  - Debug a blocker
 
-**Request 2:** Clicking the "Go to start" button
+Explain: "The assistant calls the MCP server and receives instructions for the current state"
+
+#### Scene 3: Stage Assessment Flow (1–1.5 min)
+
+**Request:** "Assess my learning stage"
 ```
-User: [clicks "Go to start" button / types "Go to start"]
+User: Assess my learning stage
 ```
+
 Show:
-- Transition to the initial state
-- New widget with greeting
+- Tool call: `get_instruction(state: "test_start")`
+- Assistant asks diagnostic questions about learning habits
 
-**Request 3:** "Analyze a blocker"
+**User response:**
 ```
-User: Analyze a blocker
+User: I try to study every day but often lose the rhythm after a week
 ```
+
 Show:
-- The assistant offers to identify the blocker
-- Dialog scenario
+- Tool call: `get_instruction(state: "assess_stage")`
+- Result: "Your stage: Practicing"
+- Explanation of criteria and recommendations for next level
 
-#### Scene 3: Help Scenario (30 sec)
+#### Scene 4: Navigation Demo (30 sec)
 
-**Request:** "How do I work with you?"
+**Request:** "Go back to start"
 ```
-User: How do I work with you?
+User: Go back to start
 ```
+
 Show:
-- Transition to help state
-- Explanation of the assistant's capabilities
+- Transition back to `init` state
+- Menu appears again
 
-#### Scene 4: Architecture Explanation (30 sec)
+Explain: "State transitions happen through explicit user actions. The FSM ensures predictable, structured dialogue."
+
+#### Scene 5: Architecture Explanation (30 sec)
 
 Explain by voice or text:
-- "State transitions only happen through ui.actions"
-- "Markdown content does not contain transition commands — this is safe"
-- "FSM architecture: state → instruction → response"
+- "Each state has a specific purpose and defined transitions"
+- "The MCP server returns instructions; the LLM follows them"
+- "FSM architecture: state → instruction → response → next state"
 
 ### 3. Conclusion
 
 - Show that the session ends correctly
 - You can show the Developer console with tool calls
+
+---
+
+## Key Scenarios to Demonstrate
+
+| Scenario | States Flow |
+|----------|-------------|
+| **Stage Assessment** | init → test_start → test_questions → assess_stage → assessment_result → init |
+| **Weekly Planning** | init → plan_entry → plan_by_days → plan_invariants → plan_save → init |
+| **Weekly Review** | init → weekly_reflection → weekly_reflection_save → next_week_planning → init |
+| **Blocker Debug** | init → blocker_debug → meme_experiment → init |
+
+---
+
+## Learning Stages (for context)
+
+| Stage | Timeframe | Key Indicator |
+|-------|-----------|---------------|
+| Random | — | No regular practice |
+| Practicing | 1–2 weeks | Tries but loses rhythm |
+| Systematic | 1–2 months | Stable rhythm |
+| Disciplined | 3–6 months | Practice as habit |
+| Proactive | 6+ months | Initiative and knowledge sharing |
 
 ---
 
@@ -95,20 +146,37 @@ Explain by voice or text:
 - [ ] Video shows Developer Mode
 - [ ] Tool calls to MCP server are visible
 - [ ] At least 2–3 different states are shown
-- [ ] Transition logic through ui.actions is explained
+- [ ] State transition logic is explained
 - [ ] Video is accessible via public link
 - [ ] Duration is 2–4 minutes
 
 ---
 
-## Example Tool Call (for demonstration)
+## Example Tool Calls (for demonstration)
 
+**Initial state request:**
 ```json
 {
-  "name": "learning-copilot",
+  "name": "get_instruction",
+  "arguments": {}
+}
+```
+
+Response:
+```json
+{
+  "state": "init",
+  "instructions": "Greet the user and offer main actions...",
+  "transitions": ["test_start", "plan_entry", "weekly_reflection", "blocker_debug"]
+}
+```
+
+**Stage assessment request:**
+```json
+{
+  "name": "get_instruction",
   "arguments": {
-    "action": "get_instructions",
-    "state": "weekly_review"
+    "state": "assess_stage"
   }
 }
 ```
@@ -116,13 +184,9 @@ Explain by voice or text:
 Response:
 ```json
 {
-  "instructions": "...",
-  "ui": {
-    "actions": [
-      {"label": "Go to start", "action": "go_home"},
-      {"label": "Analyze blocker", "action": "analyze_block"}
-    ]
-  }
+  "state": "assess_stage",
+  "instructions": "Based on user responses, determine their learning stage...",
+  "transitions": ["assessment_result", "init"]
 }
 ```
 
