@@ -1,4 +1,4 @@
-# Demo Recording Guide — Student Assistant
+# Demo Recording Guide — Learning Copilot
 
 Instructions for recording a demo video for OpenAI App Review.
 
@@ -17,7 +17,7 @@ Instructions for recording a demo video for OpenAI App Review.
 ### 1. Preparation (do not record)
 
 - Open ChatGPT in developer mode
-- Connect the Student Assistant app
+- Connect the Learning Copilot app
 - Make sure the MCP server is responding
 
 ### 2. Start Recording
@@ -26,7 +26,7 @@ Instructions for recording a demo video for OpenAI App Review.
 
 Show:
 - ChatGPT interface with the connected app
-- The name "Student Assistant" in the tools/actions list
+- The name "Learning Copilot" in the tools/actions list
 
 #### Scene 2: Main Scenario (1.5–2 min)
 
@@ -105,7 +105,7 @@ Explain by voice or text:
 
 ```json
 {
-  "name": "student-assistant",
+  "name": "learning-copilot",
   "arguments": {
     "action": "get_instructions",
     "state": "weekly_review"

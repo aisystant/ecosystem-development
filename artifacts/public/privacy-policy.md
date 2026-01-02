@@ -1,4 +1,4 @@
-# Privacy Policy — Student Assistant (Ассистент ученика)
+# Privacy Policy — Learning Copilot
 
 **Last Updated:** December 30, 2024
 
@@ -6,9 +6,9 @@
 
 ## 1. Introduction
 
-This Privacy Policy describes how **Aisystant** ("we", "us", or "our") collects, uses, and protects information when you use the **Student Assistant** (also known as "Проводник" or "Ассистент ученика") AI application ("the Service").
+This Privacy Policy describes how **Aisystant** ("we", "us", or "our") collects, uses, and protects information when you use the **Learning Copilot** AI application ("the Service").
 
-The Student Assistant is an AI-powered learning companion that helps users navigate their personal development journey through the Aisystant educational ecosystem.
+The Learning Copilot is an AI-powered learning companion that helps users navigate their personal development journey through the Aisystant educational ecosystem.
 
 ---
 
@@ -16,7 +16,7 @@ The Student Assistant is an AI-powered learning companion that helps users navig
 
 ### 2.1 Data Processed Through ChatGPT
 
-When you use the Student Assistant via ChatGPT:
+When you use the Learning Copilot via ChatGPT:
 
 | Data Type | Description |
 |-----------|-------------|
@@ -86,8 +86,8 @@ You have the right to:
 
 To request deletion of your data:
 
-1. **ChatGPT Data:** Manage via ChatGPT settings → Connected Apps → Remove "Student Assistant"
-2. **Aisystant Platform Data:** Send request to **info@system-school.ru** with subject: "Data Deletion Request — Student Assistant"
+1. **ChatGPT Data:** Manage via ChatGPT settings → Connected Apps → Remove "Learning Copilot"
+2. **Aisystant Platform Data:** Send request to **info@system-school.ru** with subject: "Data Deletion Request — Learning Copilot"
 
 We will process deletion requests within 30 days.
 

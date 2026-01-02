@@ -1,4 +1,4 @@
-# Terms of Service — Student Assistant (Ассистент ученика)
+# Terms of Service — Learning Copilot
 
 **Last Updated:** December 30, 2024
 
@@ -6,7 +6,7 @@
 
 ## 1. About the Service
 
-The **Student Assistant** (also known as "Проводник" or "Ассистент ученика") is an AI-powered educational assistant developed by **Aisystant**. It helps adult learners navigate their personal development journey within the Aisystant educational ecosystem.
+The **Learning Copilot** is an AI-powered educational assistant developed by **Aisystant**. It helps adult learners navigate their personal development journey within the Aisystant educational ecosystem.
 
 The Service operates as a ChatGPT Action that connects to the Aisystant MCP server to provide personalized learning guidance.
 
@@ -14,13 +14,13 @@ The Service operates as a ChatGPT Action that connects to the Aisystant MCP serv
 
 ## 2. Acceptance of Terms
 
-By using the Student Assistant, you agree to these Terms of Service. If you do not agree, please do not use the Service.
+By using the Learning Copilot, you agree to these Terms of Service. If you do not agree, please do not use the Service.
 
 ---
 
 ## 3. Description of Service
 
-The Student Assistant provides:
+The Learning Copilot provides:
 
 | Feature | Description |
 |---------|-------------|
@@ -58,7 +58,7 @@ The following uses are **strictly prohibited**:
 
 ## 6. Disclaimer of Warranties
 
-The Student Assistant is provided **"AS IS"** without warranties of any kind.
+The Learning Copilot is provided **"AS IS"** without warranties of any kind.
 
 **Important limitations:**
 
@@ -81,7 +81,7 @@ To the maximum extent permitted by law:
 
 ## 8. Intellectual Property
 
-- The Student Assistant, including its design, prompts, and methodology, is owned by Aisystant
+- The Learning Copilot, including its design, prompts, and methodology, is owned by Aisystant
 - User-generated content (your messages) remains your property
 - By using the Service, you grant us a license to process your inputs for providing responses
 
@@ -89,7 +89,7 @@ To the maximum extent permitted by law:
 
 ## 9. Third-Party Services
 
-The Student Assistant integrates with:
+The Learning Copilot integrates with:
 
 | Service | Purpose |
 |---------|---------|
