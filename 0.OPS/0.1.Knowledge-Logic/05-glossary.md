@@ -247,3 +247,30 @@
 - [[0.OPS/0.1.Knowledge-Logic/01-kernels-model.md]] — модель ядер
 - [[0.OPS/0.1.Knowledge-Logic/03-our-systems-map.md]] — граф систем
 - [[0.OPS/0.1.Knowledge-Logic/07-naming.md]] — правила именования
+
+## Префиксы обозначений сущностей
+
+> Расширено из "Словарь сущностей экосистемы 0.1.md"
+
+### Система префиксов
+
+Каждая сущность в экосистеме имеет префикс, обозначающий её тип:
+
+| Префикс | Тип сущности | Примеры |
+|---------|--------------|---------|
+| **R.** | Role (Роль) | `R.GrowthGuide`, `R.Mentor`, `R.Student` |
+| **S.** | System (Система, подсистема) | `S.AIPlatform`, `S.LMS`, `S.Community` |
+| **AGT.** | AI Agent (ИИ-агент) | `AGT.Orchestrator`, `AGT.RouteGuide` |
+| **QLF.** | Qualification (Квалификация) | `QLF.L1.Student`, `QLF.L5.Expert` |
+| **C.** | Component (Компонент) | `C.Program.PersonalDevelopment` |
+| **E.** | Event (Событие) | `E.LMS.SectionCompleted` |
+| **IND.** | Indicator (Показатель) | `IND.2.2.7` |
+
+**Формат**: `<Префикс>.<Имя>[.<Подтип>]`
+
+**Примеры**:
+- `AGT.RouteGuide` — агент-проводник по маршруту развития
+- `R.GrowthGuide` — роль наставника-проводника
+- `S.AIPlatform.MCP` — подсистема MCP в ИТ-платформе
+
+**Подробнее**: см. файл "Словарь сущностей экосистемы 0.1.md" (старая версия, требуется актуализация под S2R)
