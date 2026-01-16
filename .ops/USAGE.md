@@ -13,9 +13,9 @@
 ```bash
 # ✅ ПРАВИЛЬНО
 cd /mnt/c/ecosystem-development
-python3 ops/classify_documents.py
-python3 ops/save_manual_edits.py
-python3 ops/validate_classifications.py
+python3 .ops/classify_documents.py
+python3 .ops/save_manual_edits.py
+python3 .ops/validate_classifications.py
 ```
 
 ```bash
@@ -32,7 +32,7 @@ python3 classify_documents.py  # Не сработает!
 
 ```bash
 cd /mnt/c/ecosystem-development
-python3 ops/classify_documents.py
+python3 .ops/classify_documents.py
 ```
 
 **Результат:** Таблица в документе 0.6 заполнена желтыми (AI) предложениями
@@ -65,11 +65,11 @@ python3 ops/classify_documents.py
 
 ```bash
 cd /mnt/c/ecosystem-development
-python3 ops/save_manual_edits.py
+python3 .ops/save_manual_edits.py
 ```
 
 **Результат:**
-- Создан/обновлен файл `ops/manual_classifications.json`
+- Создан/обновлен файл `.ops/manual_classifications.json`
 - Отредактированные строки сохранены
 
 ---
@@ -78,7 +78,7 @@ python3 ops/save_manual_edits.py
 
 ```bash
 cd /mnt/c/ecosystem-development
-python3 ops/classify_documents.py
+python3 .ops/classify_documents.py
 ```
 
 **Результат:**
@@ -92,7 +92,7 @@ python3 ops/classify_documents.py
 
 ```bash
 cd /mnt/c/ecosystem-development
-python3 ops/validate_classifications.py
+python3 .ops/validate_classifications.py
 ```
 
 **Результат:** Проверка что все значения соответствуют допустимым из документа 0.7
@@ -112,7 +112,7 @@ python3 ops/validate_classifications.py
 **Решение:**
 ```bash
 cd /mnt/c/ecosystem-development
-python3 ops/save_manual_edits.py
+python3 .ops/save_manual_edits.py
 ```
 
 ---
@@ -160,19 +160,19 @@ python3 ops/save_manual_edits.py
 ### Сколько ручных правок сохранено?
 
 ```bash
-cat ops/manual_classifications.json | python3 -m json.tool | grep -c '"type"'
+cat .ops/manual_classifications.json | python3 -m json.tool | grep -c '"type"'
 ```
 
 ### Какие документы защищены?
 
 ```bash
-cat ops/manual_classifications.json | python3 -m json.tool
+cat .ops/manual_classifications.json | python3 -m json.tool
 ```
 
 ### Проверить валидность:
 
 ```bash
-python3 ops/validate_classifications.py
+python3 .ops/validate_classifications.py
 ```
 
 ---
@@ -183,24 +183,24 @@ python3 ops/validate_classifications.py
 
 ```bash
 # ВНИМАНИЕ: Это удалит ВСЕ сохраненные правки!
-rm ops/manual_classifications.json
-python3 ops/classify_documents.py
+rm .ops/manual_classifications.json
+python3 .ops/classify_documents.py
 ```
 
 ### Резервная копия ручных правок:
 
 ```bash
-cp ops/manual_classifications.json ops/manual_classifications.backup.json
+cp .ops/manual_classifications.json .ops/manual_classifications.backup.json
 ```
 
 ### Восстановить из резервной копии:
 
 ```bash
-cp ops/manual_classifications.backup.json ops/manual_classifications.json
+cp .ops/manual_classifications.backup.json .ops/manual_classifications.json
 ```
 
 ---
 
 ## 📞 Нужна помощь?
 
-Полная документация: `ops/README_CLASSIFICATION.md`
+Полная документация: `.ops/README_CLASSIFICATION.md`

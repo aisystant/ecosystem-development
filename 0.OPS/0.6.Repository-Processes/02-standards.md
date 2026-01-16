@@ -382,9 +382,9 @@ draft → review → stable → deprecated
 ### Валидация
 
 **Скрипты**:
-- `ops/validate_classifications.py` — проверка Frontmatter
-- `ops/normalize_content.py` — нормализация структуры
-- `ops/build_check_document.py` — генерация отчётов
+- `.ops/validate_classifications.py` — проверка Frontmatter
+- `.ops/normalize_content.py` — нормализация структуры
+- `.ops/build_check_document.py` — генерация отчётов
 
 ---
 

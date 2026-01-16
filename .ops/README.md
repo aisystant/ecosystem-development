@@ -30,22 +30,22 @@
 # Из корня проекта!
 
 # Генерация одного отчёта
-python3 ops/build_report.py --report architecture-snapshot
+python3 .ops/build_report.py --report architecture-snapshot
 
 # Генерация всех отчётов
-python3 ops/build_report.py --report all
+python3 .ops/build_report.py --report all
 
 # Предпросмотр (не сохраняет)
-python3 ops/build_report.py --report technical-issues --dry-run
+python3 .ops/build_report.py --report technical-issues --dry-run
 
 # Через shell-скрипт (все отчёты)
-./ops/build_all_reports.sh
+./.ops/build_all_reports.sh
 ```
 
 #### Запуск из Obsidian
 
 1. Установите плагин **Shell commands**
-2. Добавьте команду: `bash ops/build_all_reports.sh`
+2. Добавьте команду: `bash .ops/build_all_reports.sh`
 3. Назначьте горячую клавишу (например, `Ctrl+Shift+R`)
 
 ### Выходные файлы
@@ -119,13 +119,13 @@ python3 ops/build_report.py --report technical-issues --dry-run
 
 ```bash
 # Базовая сборка (без AI-анализа)
-python3 ops/build_check_document.py
+python3 .ops/build_check_document.py
 
 # С AI-анализом противоречий (требует OPENAI_API_KEY)
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 
 # Через shell-скрипт (запускает с AI-анализом)
-./ops/build_check_document.sh
+./.ops/build_check_document.sh
 ```
 
 #### Запуск из Obsidian
@@ -135,7 +135,7 @@ python3 ops/build_check_document.py --ai-analysis
 Установите плагин **Shell commands**:
 1. Settings → Community plugins → Browse → "Shell commands"
 2. Settings → Shell commands → New shell command
-3. Добавьте команду: `bash ops/build_check_document.sh`
+3. Добавьте команду: `bash .ops/build_check_document.sh`
 4. Назначьте горячую клавишу (например, `Ctrl+Shift+B`)
 
 **Способ 2: Через Windows Explorer**
@@ -146,7 +146,7 @@ python3 ops/build_check_document.py --ai-analysis
 
 ```bash
 # Из корня проекта
-./ops/build_check_document.sh
+./.ops/build_check_document.sh
 ```
 
 **Почему нет кнопки в Obsidian?**
@@ -221,7 +221,7 @@ DOCUMENT_MAPPING = {
 
 ```bash
 # Запуск с AI-анализом
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 ```
 
 **Что анализирует AI:**

@@ -4,11 +4,11 @@
 на основе структуры из документа 0.91
 
 Использование:
-    python ops/build_check_document.py
+    python .ops/build_check_document.py
 
     # С AI-анализом противоречий (требует OPENAI_API_KEY)
     export OPENAI_API_KEY=your_key
-    python ops/build_check_document.py --ai-analysis
+    python .ops/build_check_document.py --ai-analysis
 
 Результат записывается в: content/0. Управление/0.5. Проверочный документ.md
 
@@ -732,7 +732,7 @@ def generate_update_instructions() -> str:
 #### Полное обновление с AI-анализом раздела 9
 
 ```bash
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 ```
 
 Обновит **ВСЕ разделы** (1-9), включая полный AI-анализ противоречий.
@@ -746,7 +746,7 @@ python3 ops/build_check_document.py --ai-analysis
 #### Базовое обновление (без AI-анализа раздела 9)
 
 ```bash
-python3 ops/build_check_document.py
+python3 .ops/build_check_document.py
 ```
 
 Обновит разделы 1-8, раздел 9 останется в шаблонном виде.
@@ -853,7 +853,7 @@ AI-анализ (при включении) проверяет **ВСЕ доку
 🔄 **Требуется запуск с --ai-analysis для автоматической проверки**
 
 ```bash
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 ```
 """)
             continue
@@ -929,7 +929,7 @@ def main():
     else:
         print(f"\n💡 Для AI-анализа противоречий запустите:")
         print(f"   export OPENAI_API_KEY=your_key")
-        print(f"   python ops/build_check_document.py --ai-analysis")
+        print(f"   python .ops/build_check_document.py --ai-analysis")
 
 
 if __name__ == "__main__":

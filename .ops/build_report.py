@@ -3,14 +3,14 @@
 Генератор автоматических отчётов по хранилищу знаний.
 
 Использование:
-    python3 ops/build_report.py --report architecture-snapshot
-    python3 ops/build_report.py --report content-completeness
-    python3 ops/build_report.py --report technical-issues
-    python3 ops/build_report.py --report all
+    python3 .ops/build_report.py --report architecture-snapshot
+    python3 .ops/build_report.py --report content-completeness
+    python3 .ops/build_report.py --report technical-issues
+    python3 .ops/build_report.py --report all
 
     # С AI-анализом (требует ANTHROPIC_API_KEY)
-    python3 ops/build_report.py --report terminology --ai-analysis
-    python3 ops/build_report.py --report recommendations --ai-analysis
+    python3 .ops/build_report.py --report terminology --ai-analysis
+    python3 .ops/build_report.py --report recommendations --ai-analysis
 
 Типы отчётов:
     architecture-snapshot   - Архитектурный слепок хранилища
@@ -1691,7 +1691,7 @@ class ReportGenerator:
             report += "*Этот отчёт требует AI-анализа для сравнения определений терминов.*\n\n"
             report += "Запустите с флагом `--ai-analysis` для полного анализа:\n"
             report += "```bash\n"
-            report += "python3 ops/build_report.py --report terminology --ai-analysis\n"
+            report += "python3 .ops/build_report.py --report terminology --ai-analysis\n"
             report += "```\n\n"
             report += "**Требования:**\n"
             report += "- Установите: `pip install anthropic`\n"

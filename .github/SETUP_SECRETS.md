@@ -105,11 +105,11 @@ OPENAI_API_KEY используется для:
 export OPENAI_API_KEY="your-key-here"
 
 # Запуск скрипта
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 
 # Или через .env файл (НЕ коммитьте .env!)
 echo "OPENAI_API_KEY=your-key-here" > .env
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 ```
 
 **Не забудьте добавить `.env` в `.gitignore`!**

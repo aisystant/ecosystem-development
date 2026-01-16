@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Collect metrics about content/ after normalization and dedup steps.
-Writes ops/metrics_report.md and prints a short summary.
+Writes .ops/metrics_report.md and prints a short summary.
 """
 from pathlib import Path
 import re

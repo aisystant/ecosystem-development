@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Detect near-duplicate Markdown documents in content/ using difflib similarity.
-Outputs a report `ops/dedup_report.md` with clusters and a recommended canonical file per cluster.
+Outputs a report `.ops/dedup_report.md` with clusters and a recommended canonical file per cluster.
 
-Usage: python ops/deduplicate_content.py
+Usage: python .ops/deduplicate_content.py
 """
 from pathlib import Path
 import difflib

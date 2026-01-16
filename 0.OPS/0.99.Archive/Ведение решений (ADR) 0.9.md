@@ -350,6 +350,6 @@ layer: philosophy|methodology|architecture|service|...
 
 **Инструменты:**
 - [Dataview Plugin Documentation](https://blacksmithgu.github.io/obsidian-dataview/)
-- Python скрипты в `ops/` для генерации статических списков
+- Python скрипты в `.ops/` для генерации статических списков
 
 ---

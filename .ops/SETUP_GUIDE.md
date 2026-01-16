@@ -61,13 +61,13 @@ echo "OPENAI_API_KEY=sk-proj-ваш-ключ-здесь" > .env
 
 ```bash
 # Базовая сборка без AI-анализа
-python3 ops/build_check_document.py
+python3 .ops/build_check_document.py
 
 # С AI-анализом противоречий (требует API ключ)
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 
 # Через shell-скрипт (автоматически с AI)
-./ops/build_check_document.sh
+./.ops/build_check_document.sh
 ```
 
 ### Способ 2: Через Windows Explorer (двойной клик)
@@ -114,7 +114,7 @@ content/0. Управление/0.5. Проверочный документ.md
 2. Найдите **"Shell commands"**
 3. Установите и активируйте
 4. **Settings** → **Shell commands** → **New shell command**
-5. Добавьте команду: `bash ops/build_check_document.sh`
+5. Добавьте команду: `bash .ops/build_check_document.sh`
 6. Назначьте иконку и горячую клавишу
 
 ---
@@ -134,7 +134,7 @@ echo %OPENAI_API_KEY% # Windows CMD
 $env:OPENAI_API_KEY   # Windows PowerShell
 
 # Проверка 4: Скрипт запускается
-python3 ops/build_check_document.py --help
+python3 .ops/build_check_document.py --help
 ```
 
 ---
@@ -145,7 +145,7 @@ python3 ops/build_check_document.py --help
 
 **Решение:** Используйте `python` вместо `python3`:
 ```bash
-python ops/build_check_document.py
+python .ops/build_check_document.py
 ```
 
 ### Ошибка: "No module named 'openai'"
@@ -184,18 +184,18 @@ pip install openai
 export OPENAI_API_KEY="sk-proj-..."
 
 # Сборка с AI-анализом
-python3 ops/build_check_document.py --ai-analysis
+python3 .ops/build_check_document.py --ai-analysis
 ```
 
 ### Пример 2: Быстрая пересборка
 ```bash
 # Если ключ уже настроен ранее
-./ops/build_check_document.sh
+./.ops/build_check_document.sh
 ```
 
 ### Пример 3: Сборка без AI (быстрее и бесплатно)
 ```bash
-python3 ops/build_check_document.py
+python3 .ops/build_check_document.py
 # Раздел 9 будет с шаблоном для ручного заполнения
 ```
 

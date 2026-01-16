@@ -6,7 +6,7 @@ on:
     branches: [ main ]
     paths:
       - 'content/**/*.md'
-      - 'ops/build_report.py'
+      - '.ops/build_report.py'
 
   # Еженедельный запуск (воскресенье в 05:00 UTC = 08:00 МСК)
   schedule:
@@ -79,7 +79,7 @@ jobs:
           fi
 
           # Запускаем генерацию
-          python3 ops/build_report.py --report "$REPORT_TYPE" $AI_FLAG
+          python3 .ops/build_report.py --report "$REPORT_TYPE" $AI_FLAG
 
       - name: Check for changes
         id: check_changes

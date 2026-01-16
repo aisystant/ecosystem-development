@@ -284,7 +284,7 @@ wsl
 
 # В WSL используйте Linux пути:
 cd /mnt/c/ecosystem-development
-python3 ops/classify_documents.py
+python3 .ops/classify_documents.py
 ```
 
 ### Запуск в PowerShell (Windows):

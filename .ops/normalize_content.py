@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Normalize frontmatter and fix wikilinks based on 0.4 reports.
 
-Usage: python ops/normalize_content.py
+Usage: python .ops/normalize_content.py
 
 What it does:
 - Walks content/ for .md files

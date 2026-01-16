@@ -3572,8 +3572,8 @@ These SlotKinds are stable names for signatures, substitution laws, and guard te
 | SlotKind             | ValueKind              | refMode  | Meaning |
 |----------------------|------------------------|----------|---------|
 | `ScopeSlot`          | `U.Scope`              | byRef    | A scope object (set of slices) owned by a carrier |
-| `LeftScopeSlot`      | `U.Scope`              | byRef    | Left scope operand (binary ops/relations) |
-| `RightScopeSlot`     | `U.Scope`              | byRef    | Right scope operand (binary ops/relations) |
+| `LeftScopeSlot`      | `U.Scope`              | byRef    | Left scope operand (binary .ops/relations) |
+| `RightScopeSlot`     | `U.Scope`              | byRef    | Right scope operand (binary .ops/relations) |
 | `ScopeFamilySlot`    | `Set[U.Scope]`          | byRef    | Finite family of scopes (for `SpanUnion`) |
 | `SliceSlot`          | `U.ContextSlice`       | byValue  | A single addressable slice (membership target) |
 | `SliceSetSlot`       | `U.ContextSliceSet`    | byRef    | A finite target set of slices (coverage target) |
@@ -18215,7 +18215,7 @@ certify(role, context, window, snapshot, options) → StateAssertion
 | **Every phase = MHT**      | Each version treated as a new holon                     | Use **PhaseOf** for ordinary state progressions; reserve MHT for BOSC‑A‑T‑X.        |
 | **Agency as type**         | Introduce `U.Agent` and claim new identity              | Keep agency as role (A.13); MHT only if supervision/closure changes the whole.      |
 | **Boundary amnesia**       | Interfaces changed but not recorded                     | Update BIC; if external commitments change materially, declare MHT.                 |
-| **Order magic**            | Reordering steps treated as emergence                   | If order fixes correctness (Γ\_ctx), no MHT; only closed loops/supervision qualify. |
+| **Order magic**            | Reordering steps treated as emergence                   | If order fixes correctness (Γ\_ctx), no MHT; only closed lo.ops/supervision qualify. |
 
 
 ### B.2:9 - Consequences
@@ -28095,7 +28095,7 @@ The colon (`:`) is **reserved** for section paths and **MUST NOT** appear in pat
 * A Pattern heading **MUST** use `##` (level 2).
 * Inside a pattern, each nested section **MUST** add exactly one `#` per level (e.g., `## A.2 - …`, `### A.2:2 - …`, `#### A.2:2.1 - …`).
 
-**H‑7 (Ellipsis discipline).** Authors **MUST NOT** use **three consecutive full stops/dots** (`...`) as punctuation in headings or narrative prose. Authors **MUST** use the Unicode ellipsis `…` (U+2026) instead. For editorial elisions in quotations, authors **SHOULD** prefer `[…]` to make the omission explicit and distinguish it from retrieval truncation.
+**H‑7 (Ellipsis discipline).** Authors **MUST NOT** use **three consecutive full st.ops/dots** (`...`) as punctuation in headings or narrative prose. Authors **MUST** use the Unicode ellipsis `…` (U+2026) instead. For editorial elisions in quotations, authors **SHOULD** prefer `[…]` to make the omission explicit and distinguish it from retrieval truncation.
 *Exception:* literal three‑dot sequences that are part of an external language’s syntax **MAY** appear **only inside code spans or fenced code blocks**.
 
 **H‑8 (Normative keywords).** The key words **MUST**, **MUST NOT**, **REQUIRED**, **SHALL**, **SHALL NOT**, **SHOULD**, **SHOULD NOT**, **RECOMMENDED**, **MAY**, and **OPTIONAL** are to be interpreted as described in RFC 2119, as clarified by RFC 8174 (only when capitalised). Authors **SHOULD** avoid informal deontic phrasing (“need to”, “is required to”) in normative clauses.
@@ -39368,7 +39368,7 @@ Example 2 (§F.18:18.2) shows one naming instantiation of this unpacking.
   *Speech‑act theory:* “performative utterance”.
   *Org governance:* “approval signature”.
 * **Kind:** `U.Service` (promise), `U.SpeechAct` (utterance), `U.Commitment` (deontic bond).
-* **Purpose / use‑domain:** ops/governance vocabulary connecting ITSM, organizational policy, and pragmatics; separates saying, binding, and promising.
+* **Purpose / use‑domain:** .ops/governance vocabulary connecting ITSM, organizational policy, and pragmatics; separates saying, binding, and promising.
 * **NQD‑front (seed candidates):**  
   *promise:* *Service*, *Offering*, *Provision*, *CapabilityOffer*  
   *utterance:* *SpeechAct*, *Performative*, *Utterance*, *Declaration*  

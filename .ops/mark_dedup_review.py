@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Mark deduplication cluster candidates as review (variant C).
 
-Reads ops/dedup_report.md to find clusters, selects a canonical file
+Reads .ops/dedup_report.md to find clusters, selects a canonical file
 per cluster (longest body) and sets `status: review` and
 `suggested_canonical` in frontmatter for non-canonical files.
 """
@@ -104,7 +104,7 @@ def main():
             clusters = []
 
     if not clusters:
-        # recompute clusters using the same algorithm as ops/deduplicate_content.py
+        # recompute clusters using the same algorithm as .ops/deduplicate_content.py
         from difflib import SequenceMatcher
         MIN_LEN = 200
         THRESHOLD = 0.65
@@ -167,7 +167,7 @@ def main():
             rel = canonical.relative_to(ROOT).as_posix()
             fm['suggested_canonical'] = rel
             fm.setdefault('notes', '')
-            fm['notes'] = (fm.get('notes','') + '\nMarked by ops/mark_dedup_review.py as cluster candidate').strip()
+            fm['notes'] = (fm.get('notes','') + '\nMarked by .ops/mark_dedup_review.py as cluster candidate').strip()
             write_with_frontmatter(p, fm, body)
             modified.append(p.relative_to(ROOT).as_posix())
 

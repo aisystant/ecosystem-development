@@ -2,8 +2,8 @@
 """Normalize agreed terminology across markdown files (dry-run by default).
 
 Usage:
-  python ops/normalize_terms.py        # dry-run, writes ops/term_norm_proposals.md
-  python ops/normalize_terms.py --apply   # apply changes and commit
+  python .ops/normalize_terms.py        # dry-run, writes .ops/term_norm_proposals.md
+  python .ops/normalize_terms.py --apply   # apply changes and commit
 
 Behaviour:
 - Only replaces in markdown body (not YAML frontmatter).

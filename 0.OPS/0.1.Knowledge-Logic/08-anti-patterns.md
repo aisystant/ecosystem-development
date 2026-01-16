@@ -459,7 +459,7 @@ depends_on:
 1. Обновить ссылку на новый файл
 2. Удалить ссылку, если зависимость больше не актуальна
 
-**Инструмент**: `ops/validate_classifications.py` проверяет битые ссылки.
+**Инструмент**: `.ops/validate_classifications.py` проверяет битые ссылки.
 
 ---
 
@@ -627,9 +627,9 @@ F0.Методология/
 ### Массовый рефакторинг
 
 **Инструменты**:
-- `ops/normalize_content.py` — нормализация структуры
-- `ops/deduplicate_content.py` — удаление дубликатов
-- `ops/validate_classifications.py` — валидация метаданных
+- `.ops/normalize_content.py` — нормализация структуры
+- `.ops/deduplicate_content.py` — удаление дубликатов
+- `.ops/validate_classifications.py` — валидация метаданных
 
 **Процесс**:
 1. Создать ветку `refactor/fix-anti-patterns`

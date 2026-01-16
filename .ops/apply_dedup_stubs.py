@@ -12,7 +12,7 @@ Behavior:
     - add redirect_to: canonical relative path
     - short body: 'Перенесено в [[<canonical basename>]]'
 - Update canonical frontmatter to include aliases of removed files.
-- Write a report to ops/dedup_applied.md
+- Write a report to .ops/dedup_applied.md
 """
 from pathlib import Path
 import re

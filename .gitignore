@@ -50,10 +50,10 @@ cursor-tmp/
 *.code-workspace
 
 # === Локальные системные скрипты, не для GitHub ===
-ops/tmp/
-ops/local/
-ops/tests/
-ops/debug/
+.ops/tmp/
+.ops/local/
+.ops/tests/
+.ops/debug/
 
 # === Автоматические сборки и временные выгрузки ===
 _autogen/
@@ -75,7 +75,7 @@ venv/
 debug_*.py
 temp_*.md
 *-cleanup-report.md
-ops/*_report.md
+.ops/*_report.md
 
 # === Архив старой структуры ===
 .old/

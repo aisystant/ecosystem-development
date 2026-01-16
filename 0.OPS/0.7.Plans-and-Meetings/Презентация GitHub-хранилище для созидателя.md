@@ -277,7 +277,7 @@ ecosystem-development/
    └── Черновик мысли, без структуры
 
 2. Классификация → Определить ячейку (F0-F9)
-   └── python3 ops/classify_documents.py
+   └── python3 .ops/classify_documents.py
 
 3. Структура → Шаблон + FPF
    └── Frontmatter, разделы, ссылки
@@ -300,7 +300,7 @@ ecosystem-development/
 
 ```bash
 # Генерация всех отчётов
-python3 ops/build_report.py --report all
+python3 .ops/build_report.py --report all
 ```
 
 **Результаты в `content/0.4. Автоматические отчёты ИИ/`:**
@@ -516,7 +516,7 @@ Claude: Создаю документ в content/2.3. Операции/
 │  Для разработчика:                                              │
 │  • content/3.2. Архитектура — Платформа/                        │
 │  • agents-core/ — код агентов                                   │
-│  • ops/ — скрипты автоматизации                                 │
+│  • .ops/ — скрипты автоматизации                                 │
 │                                                                 │
 │  Для методолога:                                                │
 │  • content/2.2. Архитектура — Модель созидателя/                │
@@ -566,7 +566,7 @@ Claude: Создаю документ в content/2.3. Операции/
 │                                                                 │
 │  ПОНЕДЕЛЬНИК (утро) — GitHub Actions запускает:                 │
 │  ─────────────────────────────────────────────                  │
-│  python3 ops/build_report.py --report all                       │
+│  python3 .ops/build_report.py --report all                       │
 │                                                                 │
 │  Генерируются отчёты:                                           │
 │  • Архитектурный слепок — что есть                              │

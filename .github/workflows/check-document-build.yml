@@ -39,16 +39,16 @@ jobs:
           # - Опционально для push (если есть API ключ)
           if [ "${{ github.event_name }}" == "schedule" ]; then
             echo "📅 Еженедельный запуск - AI-анализ включен"
-            python3 ops/build_check_document.py --ai-analysis
+            python3 .ops/build_check_document.py --ai-analysis
           elif [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ "${{ github.event.inputs.ai_analysis }}" == "true" ]; then
             echo "🔧 Ручной запуск с AI-анализом"
-            python3 ops/build_check_document.py --ai-analysis
+            python3 .ops/build_check_document.py --ai-analysis
           elif [ -n "$OPENAI_API_KEY" ]; then
             echo "🔑 API ключ найден - AI-анализ включен"
-            python3 ops/build_check_document.py --ai-analysis
+            python3 .ops/build_check_document.py --ai-analysis
           else
             echo "ℹ️ Базовая сборка без AI-анализа"
-            python3 ops/build_check_document.py
+            python3 .ops/build_check_document.py
           fi
 
       - name: Check for changes

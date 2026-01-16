@@ -42,7 +42,7 @@ Docs Agent решает следующие задачи:
 
 ### Дополнительные входы
 - `.github/` — workflows и GitHub-специфичная документация
-- `ops/` — операционные скрипты (для генерации README по ops)
+- `.ops/` — операционные скрипты (для генерации README по ops)
 - Комментарии в коде (для будущей автогенерации API docs)
 
 ## Выходы
@@ -223,7 +223,7 @@ tools:
     min_readability_score: 60
     max_sentence_length: 25
     check_passive_voice: true
-    terminology_dict: "ops/terminology.yaml"
+    terminology_dict: ".ops/terminology.yaml"
 
   frontmatter_validator:
     schema: "content/0. Управление/0.7. Классификация документов и теги.md"
@@ -414,7 +414,7 @@ jobs:
 - [[00-Index]] — индекс всех агентов экосистемы
 - [[0.7. Классификация документов и теги]] — схема метаданных
 - [[CONTRIBUTING]] — как участвовать в документации
-- [[ops/README]] — операционные скрипты
+- [[.ops/README]] — операционные скрипты
 
 ## История изменений
 
