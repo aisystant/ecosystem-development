@@ -6,6 +6,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   build:
@@ -32,15 +33,13 @@ jobs:
 
           rm artifacts/inventories/repo_inventory.tmp.tsv
 
-      - name: Commit inventory
-        shell: bash
-        run: |
-          if [ -n "$(git status --porcelain)" ]; then
-            git config user.name "chatgpt-bot"
-            git config user.email "chatgpt-bot@users.noreply.github.com"
-            git add artifacts/inventories/repo_inventory.tsv
-            git commit -m "chore: add repo inventory"
-            git push
-          else
-            echo "Nothing to commit"
-          fi
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update repo inventory"
+          title: "chore: update repo inventory"
+          body: "Automated update of repository inventory file."
+          branch: auto/repo-inventory
+          delete-branch: true
+          labels: automated
