@@ -9,10 +9,17 @@
 - **Неудовлетворённости:** ~/Github/my-strategy/dissatisfactions/current.md
 - Шаблоны: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategist/templates/
 
+## Структура current/
+
+Каждая неделя — отдельная папка `current/YYYY-MM-DD--DD/plan.md`.
+Приоритеты месяца включены в plan.md (секция "Приоритеты месяца").
+Новые недели — сверху (сортировка по дате, от новых к старым).
+
 ## Алгоритм
 
 1. **Анализ прошлой недели:**
-   - Загрузи текущий weekly-plan.md из my-strategy/current/
+   - Найди последнюю папку недели в my-strategy/current/
+   - Загрузи plan.md из неё
    - Получи коммиты за прошлую неделю из ВСЕХ репо в ~/Github/
    - Рассчитай completion rate
 
@@ -22,7 +29,7 @@
    - Выяви расхождения с HUB-планом
 
 3. **Сдвиг месячного окна:**
-   - Загрузи monthly-priorities.md из my-strategy/current/
+   - Приоритеты месяца — в секции plan.md прошлой недели
    - Учти неудовлетворённости из dissatisfactions/current.md
    - Предложи обновления
 
@@ -36,11 +43,10 @@
    - Спроси о корректировках
 
 6. **После подтверждения:**
-   - Сохрани weekly-plan.md в my-strategy/current/
-   - Обнови monthly-priorities.md в my-strategy/current/
+   - Создай новую папку current/YYYY-MM-DD--DD/ с plan.md
    - Обнови WORKPLAN.md в целевых репо (обратная синхронизация)
    - Закоммить изменения в my-strategy
    - Закоммить изменения в затронутых репо
    - Зафиксируй сессию в my-strategy/sessions/YYYY-MM-DD.md
 
-Результат: обновлённый план недели, месячные приоритеты, синхронизированные WORKPLAN.md.
+Результат: новая папка недели с plan.md, синхронизированные WORKPLAN.md.
