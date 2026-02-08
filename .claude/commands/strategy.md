@@ -1,36 +1,46 @@
-Выполни сценарий Strategy Session для StrategicPlanner.
+Выполни сценарий Strategy Session для агента Стратег.
 
-Источник сценария: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategic-planner/scenarios/scheduled/01-strategy-session.md
+Источник сценария: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategist/scenarios/scheduled/01-strategy-session.md
 
 ## Контекст
 
-- Планы: ~/Github/ecosystem-development/0.OPS/0.7.Plans-and-Meetings/current/
-- Шаблоны: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategic-planner/templates/
+- **HUB (личные планы):** ~/Github/my-strategy/current/
+- **SPOKE (планы репо):** ~/Github/*/WORKPLAN.md
+- **Неудовлетворённости:** ~/Github/my-strategy/dissatisfactions/current.md
+- Шаблоны: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategist/templates/
 
 ## Алгоритм
 
 1. **Анализ прошлой недели:**
-   - Загрузи текущий weekly-plan.md
-   - Получи коммиты за прошлую неделю (git log --since="1 week ago")
+   - Загрузи текущий weekly-plan.md из my-strategy/current/
+   - Получи коммиты за прошлую неделю из ВСЕХ репо в ~/Github/
    - Рассчитай completion rate
 
-2. **Сдвиг месячного окна:**
-   - Загрузи monthly-priorities.md
+2. **Обход WORKPLAN.md (Hub-and-Spoke):**
+   - Прочитай ~/Github/*/WORKPLAN.md из каждого репо
+   - Собери все РП со статусом pending/in-progress
+   - Выяви расхождения с HUB-планом
+
+3. **Сдвиг месячного окна:**
+   - Загрузи monthly-priorities.md из my-strategy/current/
+   - Учти неудовлетворённости из dissatisfactions/current.md
    - Предложи обновления
 
-3. **План на неделю:**
-   - Выбери РП из месячных приоритетов
+4. **План на неделю:**
+   - Выбери РП из месячных приоритетов + WORKPLAN.md
    - Сформируй таблицу с бюджетом
 
-4. **Запрос на подтверждение:**
+5. **Запрос на подтверждение:**
    - Покажи итоги прошлой недели
    - Покажи предложение плана
    - Спроси о корректировках
 
-5. **После подтверждения:**
-   - Сохрани новый weekly-plan.md
-   - Обнови monthly-priorities.md
-   - Закоммить изменения
-   - Выполни /day-plan для сегодня
+6. **После подтверждения:**
+   - Сохрани weekly-plan.md в my-strategy/current/
+   - Обнови monthly-priorities.md в my-strategy/current/
+   - Обнови WORKPLAN.md в целевых репо (обратная синхронизация)
+   - Закоммить изменения в my-strategy
+   - Закоммить изменения в затронутых репо
+   - Зафиксируй сессию в my-strategy/sessions/YYYY-MM-DD.md
 
-Результат: обновлённый план недели и месячные приоритеты.
+Результат: обновлённый план недели, месячные приоритеты, синхронизированные WORKPLAN.md.

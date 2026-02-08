@@ -3,7 +3,7 @@ type: monthly-priorities
 period: 2026-02
 status: active
 created: 2026-02-07
-agent: StrategicPlanner
+agent: Strategist
 ---
 
 # Приоритеты: Февраль 2026
@@ -12,7 +12,7 @@ agent: StrategicPlanner
 
 | # | Приоритет | Область | Бюджет | Статус |
 |---|-----------|---------|--------|--------|
-| 1 | StrategicPlanner — полный запуск | digital-platform | 8h | in-progress |
+| 1 | Strategist — полный запуск | digital-platform | 8h | in-progress |
 | 2 | — | — | — | pending |
 | 3 | — | — | — | pending |
 
@@ -30,7 +30,7 @@ agent: StrategicPlanner
 
 ## Детализация приоритетов
 
-### Приоритет 1: StrategicPlanner — полный запуск
+### Приоритет 1: Strategist — полный запуск
 
 **Описание:** Создать и запустить агента для стратегического планирования и ревью рабочих продуктов.
 
@@ -71,7 +71,7 @@ agent: StrategicPlanner
 
 | Дата | Изменение | Причина |
 |------|-----------|---------|
-| 2026-02-07 | Создание | Первый запуск StrategicPlanner |
+| 2026-02-07 | Создание | Первый запуск Strategist |
 
 ---
 

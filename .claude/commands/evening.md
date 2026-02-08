@@ -1,6 +1,6 @@
-Выполни сценарий Evening Review для StrategicPlanner.
+Выполни сценарий Evening Review для Strategist.
 
-Источник сценария: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategic-planner/scenarios/on-demand/01-evening-review.md
+Источник сценария: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategist/scenarios/on-demand/01-evening-review.md
 
 ## Контекст
 

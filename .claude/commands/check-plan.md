@@ -1,6 +1,6 @@
-Выполни сценарий Check Plan для StrategicPlanner.
+Выполни сценарий Check Plan для Strategist.
 
-Источник сценария: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategic-planner/scenarios/on-demand/02-check-plan.md
+Источник сценария: ~/Github/spf-digital-platform-pack/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategist/scenarios/on-demand/02-check-plan.md
 
 ## Задача для проверки: $ARGUMENTS
 

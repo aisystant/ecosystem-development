@@ -8,8 +8,8 @@
 
 | Дата | Коммитов | Основное |
 |------|----------|----------|
-| [2026-02-07](2026-02-07.md) | 34 | Linear OAuth, Feed/Settings, StrategicPlanner |
+| [2026-02-07](2026-02-07.md) | 34 | Linear OAuth, Feed/Settings, Strategist |
 
 ---
 
-*Обновляется агентом StrategicPlanner*
+*Обновляется агентом Strategist*

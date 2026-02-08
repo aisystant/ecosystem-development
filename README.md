@@ -418,7 +418,7 @@ tags:
 
 ---
 
-## 🤖 StrategicPlanner — ИИ-агент планирования
+## 🤖 Strategist (Стратег) — ИИ-помощник планирования
 
 Агент для стратегирования и планирования рабочих продуктов.
 
@@ -456,7 +456,7 @@ tags:
 
 ### Архитектура агента
 
-Паспорт и сценарии: [spf-digital-platform-pack/DP.AGENT.012-strategic-planner](https://github.com/TserenTserenov/spf-digital-platform-pack/tree/main/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategic-planner)
+Паспорт и сценарии: [spf-digital-platform-pack/DP.AGENT.012-strategist](https://github.com/TserenTserenov/spf-digital-platform-pack/tree/main/pack/digital-platform/02-domain-entities/DP.AGENT.012-strategist)
 
 ---
 
