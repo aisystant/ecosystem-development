@@ -42,6 +42,8 @@
 | 12 | [my-strategy](https://github.com/TserenTserenov/my-strategy) | Downstream/governance | Созидатель | text-governance | personal | no | Active |
 | 13 | [docs](https://github.com/aisystant/docs) | Downstream/surface | Экосистема | text-publication | public | no | Active |
 | 14 | [marathon-v2-tseren](https://github.com/TserenTserenov/marathon-v2-tseren) | Downstream/surface | Экосистема | text-publication | team | no | Active |
+| 15 | [exocortex-template](https://github.com/TserenTserenov/exocortex-template) | Format | cross-cutting | text-description | public | yes | Active |
+| 16 | [exocortex-setup-agent](https://github.com/TserenTserenov/exocortex-setup-agent) | Downstream/instrument | cross-cutting | code | public | no | Active |
 
 ---
 
@@ -54,6 +56,7 @@
 | [FPF](https://github.com/ailev/FPF) | First Principles Framework | ailev |
 | [SPF](https://github.com/TserenTserenov/SPF) | Second Principles Framework | TserenTserenov |
 | [s2r](https://github.com/TserenTserenov/s2r) | Structured Second-level Repository | TserenTserenov |
+| [exocortex-template](https://github.com/TserenTserenov/exocortex-template) | Exocortex template (fork & deploy) | TserenTserenov |
 
 ### Pack (Source-of-truth)
 
@@ -71,6 +74,7 @@
 | [aist_bot_newarchitecture](https://github.com/aisystant/aist_bot) | Telegram-бот марафона (State Machine) | spf-personal-pack | aisystant |
 | [digital-twin-mcp](https://github.com/aisystant/digital-twin-mcp) | MCP-сервис цифрового двойника | spf-digital-platform-pack, spf-personal-pack | aisystant |
 | [Knowledge-Index-Tseren](https://github.com/TserenTserenov/Knowledge-Index-Tseren) | Персональный индекс знаний + публичные посты (`posts/`) | spf-personal-pack | TserenTserenov |
+| [exocortex-setup-agent](https://github.com/TserenTserenov/exocortex-setup-agent) | Агент развёртывания экзокортекса | exocortex-template | TserenTserenov |
 
 ### Downstream/governance
 
@@ -118,6 +122,10 @@ FPF (ailev)
         └──▶ s2r (Format)
               │
               └──▶ ecosystem-development (Downstream/governance)
+
+exocortex-template (Format)
+  │
+  └──▶ exocortex-setup-agent (Downstream/instrument)
 ```
 
 ---
@@ -171,6 +179,8 @@ FPF (ailev)
 | my-strategy | yes | yes |
 | docs | **yes** | **yes** |
 | marathon-v2-tseren | **yes** | **yes** |
+| exocortex-template | **yes** | **yes** |
+| exocortex-setup-agent | **yes** | **yes** |
 
 > **partial** = файл есть, но без полей Система/Содержание/Для кого. Обновить при следующем ревью.
 
@@ -187,4 +197,4 @@ FPF (ailev)
 
 ---
 
-*Последнее обновление: 2026-02-08*
+*Последнее обновление: 2026-02-10*
