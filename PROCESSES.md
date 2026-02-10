@@ -50,27 +50,26 @@ updated: 2026-02-10
 > Владелец: Пользователь + Стратег
 > Участники: Пользователь, Стратег, my-strategy, все ~/Github/*/WORKPLAN.md, ~/Github/*/MAPSTRATEGIC.md
 
-**Вход:** git log за прошлую неделю (все ~/Github/ репо), WeekPlan W{N-1}, WORKPLAN.md, MAPSTRATEGIC.md
+**Вход:** WeekReport W{N-1} (создан week-review, Пн 00:00), WORKPLAN.md, MAPSTRATEGIC.md
 
 **Действие:**
 
-1. **Strategy Session (Фаза 1, авто)** — Стратег собирает коммиты за неделю, формирует итоги, создаёт draft WeekPlan
-2. **Strategy Session (Фаза 2, интерактив)** — пользователь утверждает/корректирует
-3. **Strategy-Cascade** — обновление всех WORKPLAN.md, Strategy.md, MEMORY.md
+1. **Week-Review (авто, Пн 00:00)** — Стратег собирает коммиты за неделю → WeekReport (для клуба + вход для strategy)
+2. **Strategy Session (Фаза 1, авто, Пн 4:00)** — Стратег ЧИТАЕТ WeekReport → draft WeekPlan
+3. **Strategy Session (Фаза 2, интерактив)** — пользователь утверждает/корректирует
+4. **Strategy-Cascade** — обновление всех WORKPLAN.md, Strategy.md, MEMORY.md
 
-> Отдельный WeekReport НЕ нужен для стратегирования. Итоги прошлой недели — часть нового WeekPlan.
-> WeekReport (`./scripts/strategist.sh week-review`) — опциональный, для публикации в клубе.
+> Strategy НЕ собирает коммиты — читает готовый WeekReport.
 
-**Выход:** WeekPlan W{N} (confirmed), обновлённые WORKPLAN.md во всех репо, обновлённый MEMORY.md
+**Выход:** WeekReport (для клуба), WeekPlan W{N} (confirmed), обновлённые WORKPLAN.md, MEMORY.md
 
 **Данные:**
 
 | Данные | Направление | Формат |
 |--------|-------------|--------|
-| git log за неделю (все репо) | Вход → Стратег | Git output |
-| WeekPlan W{N-1} | Вход → Стратег | Markdown |
-| ~/Github/*/WORKPLAN.md | Вход → Стратег | Markdown |
-| ~/Github/*/MAPSTRATEGIC.md | Вход → Стратег | Markdown |
+| WeekReport W{N-1} | Вход → Strategy | Markdown |
+| ~/Github/*/WORKPLAN.md | Вход → Strategy | Markdown |
+| ~/Github/*/MAPSTRATEGIC.md | Вход → Strategy | Markdown |
 | WeekPlan W{N} | Выход → my-strategy/current/ | Markdown |
 | MEMORY.md (новые РП) | Выход → memory/ | Markdown |
 
