@@ -70,7 +70,7 @@
 | [aist_bot](https://github.com/aisystant/aist_bot) | Telegram-бот марафона (production) | spf-personal-pack | aisystant |
 | [aist_bot_newarchitecture](https://github.com/aisystant/aist_bot) | Telegram-бот марафона (State Machine) | spf-personal-pack | aisystant |
 | [digital-twin-mcp](https://github.com/aisystant/digital-twin-mcp) | MCP-сервис цифрового двойника | spf-digital-platform-pack, spf-personal-pack | aisystant |
-| [Knowledge-Index-Tseren](https://github.com/TserenTserenov/Knowledge-Index-Tseren) | Персональный индекс знаний | spf-personal-pack | TserenTserenov |
+| [Knowledge-Index-Tseren](https://github.com/TserenTserenov/Knowledge-Index-Tseren) | Персональный индекс знаний + публичные посты (`posts/`) | spf-personal-pack | TserenTserenov |
 
 ### Downstream/governance
 
