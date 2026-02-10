@@ -76,29 +76,31 @@ updated: 2026-02-10
 ### 2.1. Day-Close
 
 > Тип: платформенный сценарий
-> Владелец: Стратег (launchd, полночь)
-> Участники: Стратег, все ~/Github/ репо, my-strategy, MEMORY.md
+> Владелец: Стратег (ручной — по запросу пользователя)
+> Участники: Стратег, все ~/Github/ репо, my-strategy, MEMORY.md, экзокортекс
 
 **Вход:** Коммиты за день (git log по всем ~/Github/ репо)
 
 **Действие:**
 
 1. Сбор коммитов → группировка по репо и РП
-2. Формирование Day report
-3. Обновление Plan W{N} (статусы, carry-over)
-4. Синхронизация MEMORY.md (статусы РП)
-5. Backup: memory/ + CLAUDE.md → my-strategy/exocortex/
-6. Авто-коммит
+2. Обновление WeekPlan W{N} (статусы, carry-over)
+3. Синхронизация MEMORY.md (статусы РП)
+4. Backup: memory/ + CLAUDE.md → my-strategy/exocortex/
+5. Коммит
 
-**Выход:** Day report, обновлённый план, актуальный MEMORY.md
+> Отдельный файл отчёта НЕ создаётся. Итоги дня войдут в DayPlan следующего утра.
+
+**Выход:** Обновлённый WeekPlan, актуальный MEMORY.md, backup экзокортекса
 
 **Данные:**
 
 | Данные | Направление | Формат |
 |--------|-------------|--------|
 | git log (все репо) | Вход → Стратег | Git output |
-| Day YYYY-MM-DD.md | Выход → my-strategy/current/ | Markdown |
-| Plan W{N} (обновлённый) | Выход → my-strategy/current/ | Markdown |
+| WeekPlan W{N} (обновлённый) | Выход → my-strategy/current/ | Markdown |
+| MEMORY.md (обновлённый) | Выход → memory/ | Markdown |
+| Exocortex backup | Выход → my-strategy/exocortex/ | Файлы |
 
 ---
 
