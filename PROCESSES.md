@@ -123,7 +123,8 @@ updated: 2026-02-11
 |--------|-----------|-------|
 | Планирование дня | Стратег (авто) | Каждое утро, 4:00 |
 | Проверка задачи в плане | Claude Code (WP Gate) | Начало сессии |
-| Маршрутизация знаний | Claude Code (Capture-to-Pack) | На рубежах |
+| Маршрутизация знаний (мелкие правила) | Claude Code (Capture-to-Pack, напрямую) | На рубежах |
+| Формализация знаний (доменное) | Экстрактор (KE, DP.AISYS.013) | Close / Inbox-Check / по запросу |
 | Итоги дня | Стратег (Day-Close) | Вечер / по запросу |
 | Backup экзокортекса | Claude Code + Стратег | Close + Day-Close |
 | Обзор недели | Стратег (Week-Review) | Пн, 00:00 |
@@ -143,8 +144,9 @@ updated: 2026-02-11
 | Данные | Направление | Формат |
 |--------|-------------|--------|
 | DayPlan | Стратег → Пользователь | Markdown |
-| Исчезающие заметки | Пользователь → Claude Code → Pack | Текст → Markdown |
-| Captures (знания) | Claude Code → Pack-репо | Markdown |
+| Исчезающие заметки | Пользователь → Бот → inbox/captures.md → KE → Pack | Текст → Markdown |
+| Captures (мелкие правила) | Claude Code → CLAUDE.md / memory/ (напрямую) | Markdown |
+| Captures (доменное знание) | Claude Code → KE → Pack-репо (через формализацию) | Markdown |
 | Статусы РП | Claude Code / Стратег → MEMORY.md | Таблица |
 | WeekPlan / WeekReport | Стратег → DS-strategy | Markdown |
 | Быстрые запросы | Пользователь ↔ @aist_me_bot | Telegram |
