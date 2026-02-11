@@ -199,6 +199,35 @@ updated: 2026-02-11
 
 ---
 
+### 2.3. Ontology Sync (синхронизация онтологий)
+
+> Тип: платформенный сценарий
+> Владелец: Knowledge Extractor (DS-extractor-agent)
+> Участники: Pack ontology.md (все), DS-my-strategy/ontology.md (мастер), Downstream ontology.md
+
+**Вход:** Изменение ontology.md в любом Pack / создание нового Pack
+
+**Действие:**
+1. Extractor сравнивает Pack-онтологии с мастер-онтологией
+2. Находит расхождения (новые/изменённые/удалённые понятия)
+3. Проверяет Downstream-ссылки
+4. Формирует Ontology Sync Report
+5. Применяет одобренные обновления
+
+**Выход:** Обновлённая мастер-онтология + обновлённые Downstream ontology.md
+
+**Данные:**
+
+| Вход | Действие | Выход |
+|------|----------|-------|
+| Pack ontology.md (изменённый) | Сравнить с мастером | Ontology Sync Report |
+| DS-my-strategy/ontology.md | Найти расхождения | Обновлённый мастер |
+| Downstream ontology.md | Проверить актуальность | Обновлённые Downstream |
+
+**Подробности:** `DS-extractor-agent/PROCESSES.md` → Process 7, `DS-extractor-agent/prompts/ontology-sync.md`
+
+---
+
 ## 3. Формат описания процесса (шаблон)
 
 ```markdown
