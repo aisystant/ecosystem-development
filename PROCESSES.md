@@ -55,10 +55,10 @@ updated: 2026-02-10
 **Действие:**
 
 1. **Week-Review (авто, Пн 00:00)** — Стратег собирает коммиты за неделю → WeekReport
-2. **Подготовка к сессии (Фаза 1, авто, Пн 4:00)** — Стратег читает WeekReport + docs/ + inbox/ + MAPSTRATEGIC.md → обновляет Strategy.md → формирует draft WeekPlan с повесткой
-3. **Сессия стратегирования (Фаза 2, интерактив)** — пользователь утверждает/корректирует → синхронизация WORKPLAN.md, MEMORY.md, Strategy.md, очистка inbox
+2. **Session-Prep (авто, Пн 4:00)** — Стратег читает WeekReport + docs/ + inbox/ + MAPSTRATEGIC.md → обновляет Strategy.md → формирует draft WeekPlan с повесткой
+3. **Strategy-Session (интерактив, вручную)** — пользователь утверждает/корректирует → синхронизация WORKPLAN.md, MEMORY.md, Strategy.md, очистка inbox
 
-> Бывший Strategy-Cascade поглощён Фазой 1 (агрегация MAPSTRATEGIC) и Фазой 2 (синхронизация).
+> Бывший Strategy-Cascade поглощён session-prep (агрегация MAPSTRATEGIC) и strategy-session (синхронизация).
 
 **Выход:** WeekReport (для клуба), WeekPlan W{N} (confirmed), обновлённые Strategy.md, WORKPLAN.md, MEMORY.md
 
