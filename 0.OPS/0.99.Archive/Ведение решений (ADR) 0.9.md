@@ -148,7 +148,7 @@ WHERE contains(item, "ADR-")
 
 #### 3. Архитектурная документация
 **Хранилище:** Git + Markdown
-**Высокий уровень:** [DS-ops](https://github.com/aisystant/DS-ops) — общая архитектура, ADR, C4-диаграммы
+**Высокий уровень:** [DS-ecosystem-development](https://github.com/aisystant/DS-ecosystem-development) — общая архитектура, ADR, C4-диаграммы
 **Детали реализации:** Отдельные репозитории подсистем (например, [platform](https://github.com/aisystant/platform))
 **Обоснование:** Версионный контроль, code review, история изменений, близость к коду
 

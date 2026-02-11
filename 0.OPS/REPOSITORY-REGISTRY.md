@@ -191,8 +191,8 @@ FMT-exocortex-template (Format)
 | DS-exocortex-setup-agent | **yes** | **yes** |
 | DS-strategist-agent | **yes** | **yes** |
 | DS-extractor-agent | **yes** | **yes** |
-| digital-twin-mcp | no | no |
-| aist_bot_newarchitecture | no | no |
+| digital-twin-mcp | yes | **yes** |
+| aist_bot_newarchitecture | **yes** | **yes** |
 
 > **partial** = файл есть, но без полей Система/Содержание/Для кого. Обновить при следующем ревью.
 
