@@ -28,7 +28,7 @@ updated: 2026-02-11
 1. **Open: WP Gate** — Claude проверяет РП в MEMORY.md → совпадает/СТОП
 2. **Open: Ритуал** — Claude объявляет Работу/РП/Метод → пользователь согласует
 3. **Work** — выполнение задачи + capture-to-pack на рубежах
-4. **Close** — собрать captures → применить → обновить MEMORY.md → обновить DS-strategy/Plan → backup memory/ → DS-strategy/exocortex/ → коммит
+4. **Close** — собрать captures → применить → обновить MEMORY.md → обновить DS-strategy/Plan → backup memory/ → DS-strategy/exocortex/ → обновить/создать WP Context File в inbox/ (если РП in_progress, ≥2 сессий) или архивировать (если done) → коммит
 
 **Выход:** Закоммиченный результат, обновлённый план, captures в Pack/CLAUDE.md/memory
 
@@ -41,6 +41,7 @@ updated: 2026-02-11
 | memory/*.md (справочники) | Вход → Claude (по необходимости) | Markdown |
 | Captures | Выход → Pack / CLAUDE.md / memory | Текст |
 | Статусы РП | Выход → MEMORY.md, DS-strategy/Plan | Таблица |
+| WP Context File | Выход → DS-strategy/inbox/ (при Close) + Вход → Claude (при Open) | Markdown |
 
 ---
 
