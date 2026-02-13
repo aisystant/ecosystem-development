@@ -277,6 +277,38 @@ updated: 2026-02-11
 
 **Выход:** Запуск агента с нужным сценарием
 
+### 2.6. Проецирование знаний из Pack в Downstream (pack-project)
+
+> Тип: платформенный сценарий
+> Владелец: Синхронизатор (DS-synchronizer)
+> Участники: Синхронизатор, Pack-репо (source), Downstream-репо (target)
+
+**Вход:** Конфигурация системы (configs/systems/<id>.yaml): source Pack + mapping + target repo
+
+**Действие:**
+
+1. Синхронизатор обнаруживает изменение в Pack-сущности (через code-scan или ручной trigger)
+2. Читает mapping из конфига системы (какие секции Pack → какие поля проекции)
+3. Извлекает секции из Pack-сущности
+4. Валидирует: обязательные поля, формат, консистентность
+5. Генерирует Projected Read Model (YAML-файл в Downstream-репо)
+6. Коммитит в Downstream-репо (git add + commit + push)
+7. Уведомляет через notify.sh
+
+**Выход:** Обновлённая проекция (read-only YAML) в Downstream-репо
+
+**Данные:**
+
+| Данные | Роль | Формат |
+|--------|------|--------|
+| configs/systems/<id>.yaml | Вход → конфигурация | YAML |
+| Pack-сущность (DP.AISYS.014 и др.) | Вход → source-of-truth | Markdown |
+| Projected Read Model | Выход → Downstream | YAML (read-only, auto-generated) |
+
+**Архитектурный паттерн:** Single Writer (Pack) → Projected Read Model (CQRS-lite) → Conformist (Downstream). По Хононову (DDD): Anti-Corruption Layer между Bounded Contexts.
+
+**Пример:** Pack (DP.AISYS.014 — бот) → Синхронизатор → `aist_bot/config/self_knowledge_projection.yaml` (identity, scenarios, FAQ). Бот читает только проекцию, не ходит в Pack.
+
 ---
 
 ## 3. Формат описания процесса (шаблон)
