@@ -207,7 +207,7 @@ updated: 2026-02-11
 
 > Тип: платформенный сценарий
 > Владелец: Knowledge Extractor (DS-extractor-agent)
-> Участники: Pack ontology.md (все), DS-my-strategy/ontology.md (мастер), Downstream ontology.md
+> Участники: Pack ontology.md (все), DS-ecosystem-development/ontology.md (общая мастер), DS-my-strategy/ontology.md (личная), Downstream ontology.md
 
 **Вход:** Изменение ontology.md в любом Pack / создание нового Pack
 
@@ -225,7 +225,7 @@ updated: 2026-02-11
 | Вход | Действие | Выход |
 |------|----------|-------|
 | Pack ontology.md (изменённый) | Сравнить с мастером | Ontology Sync Report |
-| DS-my-strategy/ontology.md | Найти расхождения | Обновлённый мастер |
+| DS-ecosystem-development/ontology.md (общая) | Найти расхождения | Обновлённый мастер |
 | Downstream ontology.md | Проверить актуальность | Обновлённые Downstream |
 
 **Подробности:** `DS-extractor-agent/PROCESSES.md` → Process 7, `DS-extractor-agent/prompts/ontology-sync.md`
