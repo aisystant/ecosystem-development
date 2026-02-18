@@ -1,0 +1,73 @@
+name: Generate Slides (Marp)
+
+on:
+  push:
+    paths:
+      - '**/*-marp.md'
+      - '**/*-marp-*.md'
+      - '**/theme-seminar.css'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-slides:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find Marp presentations
+        id: find
+        run: |
+          files=$(find . -name '*-marp*.md' -type f | tr '\n' ',')
+          echo "files=$files" >> $GITHUB_OUTPUT
+
+      - name: Generate PDF and HTML slides
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: >-
+            --allow-local-files
+            --html
+            --output ./slides-output/
+        env:
+          MARP_FILES: ${{ steps.find.outputs.files }}
+
+      - name: Build each presentation
+        run: |
+          mkdir -p slides-output
+          for file in $(find . -name '*-marp*.md' -type f); do
+            dir=$(dirname "$file")
+            base=$(basename "$file" .md)
+
+            # Generate PDF
+            docker run --rm -v "$(pwd):/home/marp/app" \
+              marpteam/marp-cli:latest \
+              "$file" \
+              --allow-local-files \
+              --html \
+              --pdf \
+              -o "$dir/${base}.pdf" || true
+
+            # Generate HTML
+            docker run --rm -v "$(pwd):/home/marp/app" \
+              marpteam/marp-cli:latest \
+              "$file" \
+              --allow-local-files \
+              --html \
+              -o "$dir/${base}.html" || true
+
+            echo "Generated: $dir/${base}.pdf and $dir/${base}.html"
+          done
+
+      - name: Commit generated slides
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A '*.pdf' '*.html'
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generate slides from Marp presentations"
+            git push
+          fi
