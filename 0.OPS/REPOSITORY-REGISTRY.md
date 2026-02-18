@@ -3,14 +3,17 @@
 > **Source-of-truth** для списка репозиториев экосистемы развития интеллекта.
 > Обновляется при создании/удалении репозиториев.
 
-## Типы репозиториев (4 типа)
+## Типы репозиториев (5 типов)
 
-| Тип | Критерий | Source-of-truth |
-|-----|----------|-----------------|
-| **Pack** | Source-of-truth области (что истинно и как проверять) | Да |
-| **Framework** | Рамки корректности (FPF/SPF) | Да |
-| **Format** | Протокол оформления | Да (для формата) |
-| **Downstream** | Производные от Pack | Нет |
+| Тип | Уровень принципов | Критерий | Source-of-truth |
+|-----|-------------------|----------|-----------------|
+| **Foundation** | 0-й (нулевые) | Транс-дисциплинарные мета-ограничения | Да |
+| **Pack** | 2-й (вторые принципы) | Source-of-truth области (что истинно и как проверять) | Да |
+| **Framework** | 1-й / 2-й | Рамки корректности (FPF/SPF) | Да |
+| **Format** | 3-й (фреймворк третьих) | Протокол оформления | Да (для формата) |
+| **Downstream** | 3-й (третьи принципы) | Производные от Pack | Нет |
+
+> Pack = вторые принципы. Downstream = третьи принципы. Подробно: `Zeroth-Principles/README.md`
 
 ### Подтипы Downstream
 
@@ -28,6 +31,7 @@
 
 | # | Репозиторий | Тип | Система | Содержание | Для кого | SoT | Статус |
 |---|-------------|-----|---------|------------|----------|-----|--------|
+| 0 | [Zeroth-Principles](https://github.com/TserenTserenov/Zeroth-Principles) | Foundation | cross-cutting | text-description | public | yes | Active |
 | 1 | [FPF](https://github.com/ailev/FPF) | Framework | cross-cutting | text-description | public | yes | External |
 | 2 | [SPF](https://github.com/TserenTserenov/SPF) | Framework | cross-cutting | text-description | public | yes | Active |
 | 3 | [s2r](https://github.com/TserenTserenov/FMT-S2R) | Format | cross-cutting | text-description | public | yes | Active |
@@ -53,6 +57,12 @@
 ---
 
 ## По типам (детали)
+
+### Foundation
+
+| Репозиторий | Роль | Владелец |
+|-------------|------|----------|
+| [Zeroth-Principles](https://github.com/TserenTserenov/Zeroth-Principles) | Zeroth Principles (6 мета-ограничений + карта иерархии 0→1→2→3) | TserenTserenov |
 
 ### Framework & Format
 
@@ -105,9 +115,11 @@
 ## Граф зависимостей
 
 ```
-FPF (ailev)
+Zeroth-Principles (Foundation, Level 0)
   │
-  └──▶ SPF (Framework)
+  └──▶ FPF (ailev, Level 1)
+        │
+        └──▶ SPF (Framework, Level 2)
         │
         ├──▶ PACK-personal (Pack: Созидатель)
         │     │
@@ -155,7 +167,7 @@ FMT-exocortex-template (Format)
 ### 1. Признак типа в README.md (первая строка после заголовка)
 
 ```markdown
-> **Тип репозитория:** `Pack` | `Framework` | `Format` | `Downstream/instrument` | `Downstream/governance` | `Downstream/surface`
+> **Тип репозитория:** `Foundation` | `Pack` | `Framework` | `Format` | `Downstream/instrument` | `Downstream/governance` | `Downstream/surface`
 ```
 
 ### 2. Файл `REPO-TYPE.md` с 4D-полями:
@@ -163,7 +175,7 @@ FMT-exocortex-template (Format)
 ```markdown
 # Тип репозитория
 
-**Тип**: `Pack` | `Framework` | `Format` | `Downstream/instrument` | `Downstream/governance` | `Downstream/surface`
+**Тип**: `Foundation` | `Pack` | `Framework` | `Format` | `Downstream/instrument` | `Downstream/governance` | `Downstream/surface`
 **Система (SoI)**: Созидатель | Экосистема | ИТ-платформа | Бот Aist | cross-cutting
 **Содержание**: code | text-description | text-governance | text-publication
 **Для кого**: personal | team | public
@@ -183,6 +195,7 @@ FMT-exocortex-template (Format)
 
 | Репозиторий | REPO-TYPE.md | 4D-поля |
 |-------------|-------------|---------|
+| Zeroth-Principles | — (minimal, no REPO-TYPE needed) | — |
 | FPF | — (external) | — |
 | SPF | yes | partial |
 | FMT-S2R | yes | partial |
@@ -219,4 +232,4 @@ FMT-exocortex-template (Format)
 
 ---
 
-*Последнее обновление: 2026-02-11*
+*Последнее обновление: 2026-02-18*
