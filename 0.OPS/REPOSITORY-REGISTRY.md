@@ -53,6 +53,8 @@
 | 18 | [digital-twin-mcp](https://github.com/aisystant/digital-twin-mcp) | Downstream/instrument | ИТ-платформа | code | team | no | Active |
 | 19 | [aist_bot_newarchitecture](https://github.com/aisystant/aist_bot_newarchitecture) | Downstream/instrument | Бот Aist | code | team | no | Active |
 | 21 | [DS-synchronizer](https://github.com/TserenTserenov/DS-synchronizer) | Downstream/instrument | ИТ-платформа | code | personal | no | Active |
+| 22 | [DS-fixer-agent](https://github.com/TserenTserenov/DS-fixer-agent) | Downstream/instrument | Бот Aist | code | personal | no | Active |
+| 23 | [DS-pulse-agent](https://github.com/TserenTserenov/DS-pulse-agent) | Downstream/instrument | ИТ-платформа | code | personal | no | Active |
 
 ---
 
@@ -93,6 +95,8 @@
 | [DS-strategist-agent](https://github.com/TserenTserenov/DS-strategist-agent) | Агент стратегирования | PACK-personal, PACK-digital-platform | TserenTserenov |
 | [DS-extractor-agent](https://github.com/TserenTserenov/DS-extractor-agent) | Агент извлечения знаний | PACK-digital-platform | TserenTserenov |
 | [DS-synchronizer](https://github.com/TserenTserenov/DS-synchronizer) | Синхронизатор экзокортекса (watch → detect → route) | PACK-digital-platform | TserenTserenov |
+| [DS-fixer-agent](https://github.com/TserenTserenov/DS-fixer-agent) | Наладчик: обнаружение и авто-исправление ошибок бота (L1-L4) | PACK-digital-platform | TserenTserenov |
+| [DS-pulse-agent](https://github.com/TserenTserenov/DS-pulse-agent) | Статистик: tier-aware аналитика IWE | PACK-digital-platform | TserenTserenov |
 | [digital-twin-mcp](https://github.com/aisystant/digital-twin-mcp) | MCP-сервер цифрового двойника | PACK-digital-platform, PACK-personal | aisystant |
 | [aist_bot_newarchitecture](https://github.com/aisystant/aist_bot_newarchitecture) | Telegram-бот (new architecture, State Machine) | PACK-personal | aisystant |
 
@@ -147,7 +151,9 @@ ZP (Foundation, Level 0)
         │     ├──▶ DS-my-strategy (Downstream/governance — агент Стратег)
         │     ├──▶ DS-strategist-agent (Downstream/instrument — агент)
         │     ├──▶ DS-extractor-agent (Downstream/instrument — агент)
-        │     └──▶ DS-synchronizer (Downstream/instrument — watcher)
+        │     ├──▶ DS-synchronizer (Downstream/instrument — watcher)
+        │     ├──▶ DS-fixer-agent (Downstream/instrument — Наладчик)
+        │     └──▶ DS-pulse-agent (Downstream/instrument — Статистик)
         │
         └──▶ FMT-S2R (Format)
               │
