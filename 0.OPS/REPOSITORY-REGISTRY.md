@@ -13,7 +13,7 @@
 | **Format** | 3-й (фреймворк третьих) | Протокол оформления | Да (для формата) |
 | **Downstream** | 3-й (третьи принципы) | Производные от Pack | Нет |
 
-> Pack = вторые принципы. Downstream = третьи принципы. Подробно: `Zeroth-Principles/README.md`
+> Pack = вторые принципы. Downstream = третьи принципы. Подробно: `ZP/README.md`
 
 ### Подтипы Downstream
 
@@ -31,7 +31,7 @@
 
 | # | Репозиторий | Тип | Система | Содержание | Для кого | SoT | Статус |
 |---|-------------|-----|---------|------------|----------|-----|--------|
-| 0 | [Zeroth-Principles](https://github.com/TserenTserenov/Zeroth-Principles) | Foundation | cross-cutting | text-description | public | yes | Active |
+| 0 | [ZP](https://github.com/TserenTserenov/ZP) | Foundation | cross-cutting | text-description | public | yes | Active |
 | 1 | [FPF](https://github.com/ailev/FPF) | Framework | cross-cutting | text-description | public | yes | External |
 | 2 | [SPF](https://github.com/TserenTserenov/SPF) | Framework | cross-cutting | text-description | public | yes | Active |
 | 3 | [s2r](https://github.com/TserenTserenov/FMT-S2R) | Format | cross-cutting | text-description | public | yes | Active |
@@ -62,7 +62,7 @@
 
 | Репозиторий | Роль | Владелец |
 |-------------|------|----------|
-| [Zeroth-Principles](https://github.com/TserenTserenov/Zeroth-Principles) | Zeroth Principles (6 мета-ограничений + карта иерархии 0→1→2→3) | TserenTserenov |
+| [ZP](https://github.com/TserenTserenov/ZP) | Zeroth Principles (6 мета-ограничений + карта иерархии 0→1→2→3) | TserenTserenov |
 
 ### Framework & Format
 
@@ -115,7 +115,7 @@
 ## Граф зависимостей
 
 ```
-Zeroth-Principles (Foundation, Level 0)
+ZP (Foundation, Level 0)
   │
   └──▶ FPF (ailev, Level 1)
         │
@@ -195,7 +195,7 @@ FMT-exocortex-template (Format)
 
 | Репозиторий | REPO-TYPE.md | 4D-поля |
 |-------------|-------------|---------|
-| Zeroth-Principles | — (minimal, no REPO-TYPE needed) | — |
+| ZP | — (minimal, no REPO-TYPE needed) | — |
 | FPF | — (external) | — |
 | SPF | yes | partial |
 | FMT-S2R | yes | partial |
