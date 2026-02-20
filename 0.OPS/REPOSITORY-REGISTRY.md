@@ -48,14 +48,12 @@
 | 12 | [docs](https://github.com/aisystant/docs) | Downstream/surface | Экосистема | text-publication | public | no | Active |
 | 13 | [DS-marathon-v2-tseren](https://github.com/TserenTserenov/DS-marathon-v2-tseren) | Downstream/surface | Экосистема | text-publication | team | no | Active |
 | 14 | [FMT-exocortex-template](https://github.com/TserenTserenov/FMT-exocortex-template) | Format | cross-cutting | text-description | public | yes | Active |
-| 15 | [DS-exocortex-setup-agent](https://github.com/TserenTserenov/DS-exocortex-setup-agent) | Downstream/instrument | cross-cutting | code | public | no | Active |
-| 16 | [DS-strategist-agent](https://github.com/TserenTserenov/DS-strategist-agent) | Downstream/instrument | Созидатель | code | personal | no | Active |
-| 17 | [DS-extractor-agent](https://github.com/TserenTserenov/DS-extractor-agent) | Downstream/instrument | ИТ-платформа | code | personal | no | Active |
+| 15 | [DS-ai-systems](https://github.com/TserenTserenov/DS-ai-systems) | Downstream/instrument | ИТ-платформа | code | personal | no | Active |
 | 18 | [digital-twin-mcp](https://github.com/aisystant/digital-twin-mcp) | Downstream/instrument | ИТ-платформа | code | team | no | Active |
 | 19 | [aist_bot_newarchitecture](https://github.com/aisystant/aist_bot_newarchitecture) | Downstream/instrument | Бот Aist | code | team | no | Active |
-| 21 | [DS-synchronizer](https://github.com/TserenTserenov/DS-synchronizer) | Downstream/instrument | ИТ-платформа | code | personal | no | Active |
-| 22 | [DS-fixer-agent](https://github.com/TserenTserenov/DS-fixer-agent) | Downstream/instrument | Бот Aist | code | personal | no | Active |
-| 23 | [DS-pulse-agent](https://github.com/TserenTserenov/DS-pulse-agent) | Downstream/instrument | ИТ-платформа | code | personal | no | Active |
+| — | ~~DS-synchronizer~~ | ~~Downstream/instrument~~ | — | — | — | — | Archived → DS-ai-systems |
+| — | ~~DS-fixer-agent~~ | ~~Downstream/instrument~~ | — | — | — | — | Archived → DS-ai-systems |
+| — | ~~DS-pulse-agent~~ | ~~Downstream/instrument~~ | — | — | — | — | Archived → DS-ai-systems |
 
 ---
 
@@ -93,12 +91,7 @@
 | [DS-aist-bot](https://github.com/aisystant/DS-aist-bot) | Telegram-бот марафона (production + State Machine) | PACK-personal | aisystant |
 | [DS-twin](https://github.com/aisystant/DS-twin) | MCP-сервис цифрового двойника | PACK-digital-platform, PACK-personal | aisystant |
 | [DS-Knowledge-Index-Tseren](https://github.com/TserenTserenov/DS-Knowledge-Index-Tseren) | Персональный индекс знаний + публичные посты (`posts/`) | PACK-personal | TserenTserenov |
-| [DS-exocortex-setup-agent](https://github.com/TserenTserenov/DS-exocortex-setup-agent) | Агент развёртывания экзокортекса | FMT-exocortex-template | TserenTserenov |
-| [DS-strategist-agent](https://github.com/TserenTserenov/DS-strategist-agent) | Агент стратегирования | PACK-personal, PACK-digital-platform | TserenTserenov |
-| [DS-extractor-agent](https://github.com/TserenTserenov/DS-extractor-agent) | Агент извлечения знаний | PACK-digital-platform | TserenTserenov |
-| [DS-synchronizer](https://github.com/TserenTserenov/DS-synchronizer) | Синхронизатор экзокортекса (watch → detect → route) | PACK-digital-platform | TserenTserenov |
-| [DS-fixer-agent](https://github.com/TserenTserenov/DS-fixer-agent) | Наладчик: обнаружение и авто-исправление ошибок бота (L1-L4) | PACK-digital-platform | TserenTserenov |
-| [DS-pulse-agent](https://github.com/TserenTserenov/DS-pulse-agent) | Статистик: tier-aware аналитика IWE | PACK-digital-platform | TserenTserenov |
+| [DS-ai-systems](https://github.com/TserenTserenov/DS-ai-systems) | Монорепо ИИ-систем (7 систем: стратег, экстрактор, синхронизатор, наладчик, статистик, оценщик, шаблонизатор) | PACK-digital-platform, PACK-personal | TserenTserenov |
 | [digital-twin-mcp](https://github.com/aisystant/digital-twin-mcp) | MCP-сервер цифрового двойника | PACK-digital-platform, PACK-personal | aisystant |
 | [aist_bot_newarchitecture](https://github.com/aisystant/aist_bot_newarchitecture) | Telegram-бот (new architecture, State Machine) | PACK-personal | aisystant |
 
@@ -155,11 +148,7 @@ ZP (Foundation, Level 0)
         │     ├──▶ DS-twin (Downstream/instrument)
         │     ├──▶ digital-twin-mcp (Downstream/instrument)
         │     ├──▶ DS-my-strategy (Downstream/governance — агент Стратег)
-        │     ├──▶ DS-strategist-agent (Downstream/instrument — агент)
-        │     ├──▶ DS-extractor-agent (Downstream/instrument — агент)
-        │     ├──▶ DS-synchronizer (Downstream/instrument — watcher)
-        │     ├──▶ DS-fixer-agent (Downstream/instrument — Наладчик)
-        │     └──▶ DS-pulse-agent (Downstream/instrument — Статистик)
+        │     └──▶ DS-ai-systems (Downstream/instrument — 7 ИИ-систем)
         │
         └──▶ FMT-S2R (Format)
               │
@@ -167,7 +156,7 @@ ZP (Foundation, Level 0)
 
 FMT-exocortex-template (Format)
   │
-  └──▶ DS-exocortex-setup-agent (Downstream/instrument)
+  └──▶ DS-ai-systems/setup (Downstream/instrument)
 ```
 
 ---
@@ -222,12 +211,10 @@ FMT-exocortex-template (Format)
 | docs | **yes** | **yes** |
 | DS-marathon-v2-tseren | **yes** | **yes** |
 | FMT-exocortex-template | **yes** | **yes** |
-| DS-exocortex-setup-agent | **yes** | **yes** |
-| DS-strategist-agent | **yes** | **yes** |
-| DS-extractor-agent | **yes** | **yes** |
+| DS-ai-systems | **yes** | **yes** |
 | digital-twin-mcp | yes | **yes** |
 | aist_bot_newarchitecture | **yes** | **yes** |
-| DS-synchronizer | **yes** | **yes** |
+| ~~DS-synchronizer~~ | — | — (→ DS-ai-systems) |
 
 > **partial** = файл есть, но без полей Система/Содержание/Для кого. Обновить при следующем ревью.
 

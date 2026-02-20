@@ -113,7 +113,7 @@ updated: 2026-02-11
 
 6. **Обновления экзокортекса**
    - Платформа публикует обновления → upstream FMT-exocortex
-   - Пользователь: `git fetch upstream && git merge` (→ DS-exocortex-setup-agent, Сценарий 2)
+   - Пользователь: `git fetch upstream && git merge` (→ DS-ai-systems/setup, Сценарий 2)
    - Platform-space обновляется, User-space не затрагивается
 
 **Выход:** Развивающаяся база знаний (Pack), актуальные планы, зафиксированные результаты
@@ -206,7 +206,7 @@ updated: 2026-02-11
 ### 2.3. Ontology Sync (синхронизация онтологий)
 
 > Тип: платформенный сценарий
-> Владелец: Knowledge Extractor (DS-extractor-agent)
+> Владелец: Knowledge Extractor (DS-ai-systems/extractor)
 > Участники: Pack ontology.md (все), DS-ecosystem-development/ontology.md (общая мастер), DS-my-strategy/ontology.md (личная), Downstream ontology.md
 
 **Вход:** Изменение ontology.md в любом Pack / создание нового Pack
@@ -228,7 +228,7 @@ updated: 2026-02-11
 | DS-ecosystem-development/ontology.md (общая) | Найти расхождения | Обновлённый мастер |
 | Downstream ontology.md | Проверить актуальность | Обновлённые Downstream |
 
-**Подробности:** `DS-extractor-agent/PROCESSES.md` → Process 7, `DS-extractor-agent/prompts/ontology-sync.md`
+**Подробности:** `DS-ai-systems/extractor/PROCESSES.md` → Process 7, `DS-ai-systems/extractor/prompts/ontology-sync.md`
 
 ---
 
