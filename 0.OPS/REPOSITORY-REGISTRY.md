@@ -40,7 +40,7 @@
 | 6 | [PACK-digital-platform](https://github.com/TserenTserenov/PACK-digital-platform) | Pack | ИТ-платформа | text-description | team | yes | Active |
 | 20 | [PACK-MIM](https://github.com/TserenTserenov/PACK-MIM) | Pack | МИМ (мастерская) | text-description | team | yes | Active |
 | 24 | [PACK-education](https://github.com/TserenTserenov/PACK-education) | Pack | Методика обучения | text-description | team | yes | Active |
-| 7 | [DS-aist-bot](https://github.com/aisystant/DS-aist-bot) | Downstream/instrument | Бот Aist | code | team | no | Active |
+| — | ~~DS-aist-bot~~ | ~~Downstream/instrument~~ | — | — | — | — | Archived → aist_bot_newarchitecture |
 | 8 | [DS-twin](https://github.com/aisystant/DS-twin) | Downstream/instrument | ИТ-платформа | code | team | no | Active |
 | 9 | [DS-Knowledge-Index-Tseren](https://github.com/TserenTserenov/DS-Knowledge-Index-Tseren) | Downstream/instrument | Созидатель | code | personal | no | Active |
 | 10 | [DS-ecosystem-development](https://github.com/aisystant/DS-ecosystem-development) | Downstream/governance | Экосистема | text-governance | team | no | Active |
@@ -88,7 +88,7 @@
 
 | Репозиторий | Назначение | Upstream pack | Владелец |
 |-------------|------------|---------------|----------|
-| [DS-aist-bot](https://github.com/aisystant/DS-aist-bot) | Telegram-бот марафона (production + State Machine) | PACK-personal | aisystant |
+| ~~DS-aist-bot~~ | ~~Archived → aist_bot_newarchitecture~~ | — | — |
 | [DS-twin](https://github.com/aisystant/DS-twin) | MCP-сервис цифрового двойника | PACK-digital-platform, PACK-personal | aisystant |
 | [DS-Knowledge-Index-Tseren](https://github.com/TserenTserenov/DS-Knowledge-Index-Tseren) | Персональный индекс знаний + публичные посты (`posts/`) | PACK-personal | TserenTserenov |
 | [DS-ai-systems](https://github.com/TserenTserenov/DS-ai-systems) | Монорепо ИИ-систем (7 систем: стратег, экстрактор, синхронизатор, наладчик, статистик, оценщик, шаблонизатор) | PACK-digital-platform, PACK-personal | TserenTserenov |
@@ -122,7 +122,6 @@ ZP (Foundation, Level 0)
         │
         ├──▶ PACK-personal (Pack: Созидатель)
         │     │
-        │     ├──▶ DS-aist-bot (Downstream/instrument)
         │     ├──▶ aist_bot_newarchitecture (Downstream/instrument)
         │     ├──▶ DS-twin (Downstream/instrument)
         │     ├──▶ DS-Knowledge-Index-Tseren (Downstream/instrument)
@@ -203,7 +202,7 @@ FMT-exocortex-template (Format)
 | PACK-personal | yes | partial |
 | PACK-ecosystem | yes | partial |
 | PACK-digital-platform | yes | partial |
-| DS-aist-bot | **yes** | **yes** |
+| ~~DS-aist-bot~~ | — | — (→ aist_bot_newarchitecture) |
 | DS-twin | yes | partial |
 | DS-Knowledge-Index-Tseren | **yes** | **yes** |
 | DS-ecosystem-development | yes | partial |
@@ -231,4 +230,4 @@ FMT-exocortex-template (Format)
 
 ---
 
-*Последнее обновление: 2026-02-19*
+*Последнее обновление: 2026-02-20*
